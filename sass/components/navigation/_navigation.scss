@@ -1,0 +1,175 @@
+@import "../../abstracts/abstracts";
+
+.main-navigation {
+	position: absolute;
+	top: 0;
+	opacity: 0;
+	left: -9999px;
+	width: 100%;
+	height: 100vh;
+	background: #fafffc;
+	display: block;
+	z-index: 2;
+	padding: 80px 10px 0;
+	transition: .4s opacity;
+	transform-origin: 50% 50vh;
+
+	&.menu-active{
+		opacity: 1;
+		left: 0;
+	}
+	
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+
+		ul {
+			margin: 20px 0 0 0;
+			flex-flow: column nowrap;
+			justify-content: flex-start;
+			/*top: 100%;
+			left: -999em;
+			z-index: 99999;*/
+
+			ul {
+				left: -999em;
+				top: 0;
+			}
+
+			li {
+				padding: 0;
+				&:hover > ul,
+				&.focus > ul {
+					display: block;
+					left: auto;
+				}
+			}
+
+			a {
+
+				color: #606060;
+				font-size: 1.2em;
+				padding: 0;
+
+				&:hover,
+				&:focus{
+					border-bottom: 2px solid #606060;
+				}
+			}
+
+			:hover > a,
+			.focus > a {
+			}
+
+			a:hover,
+			a.focus {
+			}
+		}
+
+		li:hover > ul,
+		li.focus > ul {
+			left: auto;
+		}
+	}
+
+	li {
+		position: relative;
+		padding: 15px;
+		margin: 0 0 5px 0; 
+
+		&:hover > a,
+		&.focus > a {
+		}
+
+	}
+
+	a {
+		color: $color__greencal1;
+		/*padding: 15px 15px 15px 0;*/
+		font-family: $font__secondary;
+		font-size: 2em;
+		border-bottom: 2px solid $color__white;	
+
+		&:hover,
+		&:focus{
+			border-bottom: 2px solid $color__greencal1;
+		}
+	}
+
+
+
+	.current_page_item > a,
+	.current-menu-item > a,
+	.current_page_ancestor > a,
+	.current-menu-ancestor > a {
+	}
+}
+
+.nav-close{
+	position: absolute;
+	background: $color__greencal1;
+	top: 10px;
+	right: 10px;
+	height: 35px;
+	width: 35px;
+	padding: 5px;
+	outline: none;
+
+	&,
+	&:hover,
+	&:focus{
+		border: 2px solid $color__greencal4;
+	}
+
+	&:active{
+		outline: none;
+	}
+}
+
+.nav-close img{
+	width: 100%;
+	height: 100%;
+	transition: .3s transform;
+}
+
+.nav-close:hover img,
+.nav-close:focus img{
+	transform: rotate(90deg);
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+
+	.site-main & {
+		margin: 0 0 1.5em;
+	}
+
+	.nav-links {
+		display: flex;
+	}
+
+	.nav-previous {
+		flex: 1 0 50%;
+	}
+
+	.nav-next {
+		text-align: end;
+		flex: 1 0 50%;
+	}
+}
+
+.logged-in .nav-close{
+	top: 48px;
+}

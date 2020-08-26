@@ -1,0 +1,43 @@
+@import "../../abstracts/abstracts";
+
+/*--------
+entry footer
+----------*/
+
+.cat-links,
+.tags-links{
+	@include clearfix();
+}
+
+.hfeed .post .cat-links a,
+.hfeed .post .tags-links a{
+	color: #fff;
+	border-bottom: none;
+	padding: .5rem;
+	background: $color__greencal3;
+	border-radius: 3px;
+	border: 2px solid $color__greencal2;
+	transition: .2s background;
+	display: block;
+	float: left;
+	margin: .5rem;
+
+	&:first-child{
+		margin: .5rem .5rem .5rem 0
+	}
+}
+
+.hfeed .post .tags-links a:hover,
+.hfeed .post .cat-links a:hover,
+.hfeed .post .tags-links a:focus,
+.hfeed .post .cat-links a:focus{
+	color: $color__greencal3;
+	background: $color__greencal2;
+}
+
+.edit-link{
+	padding: 0 .5rem;
+}
+.comments-link{
+	padding: 0 .5rem 0 0;
+}

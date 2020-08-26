@@ -1,0 +1,27 @@
+@import "../../../abstracts/abstracts";
+
+.picture-nav-section{
+	padding: 50px 1rem;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.picture-nav ul{
+	list-style: none
+}
+
+.picture-nav ul li{
+	padding: .5rem;
+}
+
+.picture-nav a{
+	font-family: $font__secondary;
+	font-size: 1.5em;
+	border-bottom: none;
+	color: $color__greencal1;
+	transition: .3s transform;
+}
+
+.picture-nav li:hover a{
+	transform: scale(1.5)
+}

@@ -1,0 +1,18 @@
+@import "../../abstracts/abstracts";
+
+/* Child 3n */
+
+@include indexpost( '3n', $color__white, #404040, $color__greencal1, $color__greencal2, $color__greencal4, $whitebg: true );
+
+/* Child 3n+1 */
+
+@include indexpost( '3n+1', $color__greencal1, $color__white, $color__white, $color__white, $color__greencal4 );
+
+/* Child 3n+2 */
+
+@include indexpost( '3n+2', $color__greencal2, #000, $color__greencal1, $color__greencal1, $color__greencal4 );
+
+.hfeed .post:nth-child(3n) .wp-block-image,
+.hfeed .post:nth-child(3n) a.post-thumbnail{
+	padding: 0;
+}

@@ -1,0 +1,95 @@
+@import "../../../abstracts/abstracts";
+
+.featured-cards{
+	padding: 100px 1rem;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.card{
+	flex: 1 0;
+	padding: 1rem;
+	margin: 3rem 1rem;
+	position: relative;
+}
+
+.card-spacer{
+	flex-basis: 100%;
+}
+
+.card:before,
+.card:after{
+	position: absolute;
+	transform: skewY(4deg);
+	height: 46px;
+	width: 100%;
+	left: 0;
+	content:'';
+}
+
+.card-1:before,
+.card-2:before,
+.card-3:before{
+	top: -20px;
+	/*border-top: 2px solid $color__greencal1;*/
+}
+
+.card-1:after,
+.card-2:after,
+.card-3:after{
+	bottom: -22px;
+	/*border-bottom: 2px solid $color__greencal1;*/
+}
+
+@media all and ( min-width: 700px ){
+	.card{
+		margin: 1rem 1rem;
+	}
+
+	.card-spacer{
+		flex: 0 0;
+	}
+
+	.card-1:before,
+	.card-2:before,
+	.card-3:before{
+		top: -30px;
+		/*border-top: 2px solid $color__greencal1;*/
+	}
+
+	.card-1:after,
+	.card-2:after,
+	.card-3:after{
+		bottom: -30px;
+		/*border-bottom: 2px solid $color__greencal1;*/
+	}
+
+}
+
+.card-1,
+.card-1:before,
+.card-1:after{
+	background: $color__white;
+}
+
+.card-1:before{
+	border-top: 2px solid $color__greencal1;
+}
+
+.card-1:after{
+	border-bottom: 2px solid $color__greencal1;
+}
+
+.card-2,
+.card-2:before,
+.card-2:after{
+	background: $color__greencal2;
+	color: #000
+}
+
+.card-3,
+.card-3:before,
+.card-3:after{
+	background: $color__greencal1;
+	color: $color__white
+}

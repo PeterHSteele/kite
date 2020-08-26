@@ -1,0 +1,34 @@
+@import "../../abstracts/abstracts";
+
+/*------------------
+Post Container
+-------------------*/
+
+.hfeed .post{
+	padding: 90px 1rem;
+	position: relative;
+	margin: 0;
+}
+
+@media all and ( min-width: 800px ){
+	.hfeed .post{
+		padding: 90px 1rem 70px;
+	}
+}
+
+.hfeed .post::after{
+	position: absolute;
+	background-color: inherit;
+	height: 70px;
+	width: 100%;
+	transform: skewY(3deg);
+	content:'';
+	left: 0;
+	bottom: 0;
+	transform-origin: bottom left;
+}
+
+.hfeed .post::after{
+	bottom: 0;
+	z-index: 1;
+}

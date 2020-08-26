@@ -1,0 +1,27 @@
+@import "../../abstracts/abstracts";
+
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	color: #404040;
+	font-family: $font__main;
+	font-size: 1rem;
+	line-height: 1.5;
+	background: #efffef;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $font__secondary;
+	font-weight: 600;
+	clear: both;
+}
+
+@import "copy";

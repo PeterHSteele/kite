@@ -1,0 +1,71 @@
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Column width with margin
+@mixin column-width($numberColumns: 3) {
+	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+}
+
+//post styles ( index view )
+@mixin indexpost( $int, $bg, $color, $link, $accent, $metaborder, $whitebg: false ){
+	.hfeed .post:nth-child(#{$int}),
+	.hfeed .post:nth-child(#{$int})::before,
+	.hfeed .post:nth-child(#{$int})::after{
+		background: $bg;
+	}
+
+	.hfeed .post:nth-child(#{$int})::after{
+		box-shadow: 0px 8px $accent; 
+	}
+
+	.hfeed .post:nth-child(#{$int}){
+		color: $color;
+	}
+
+	.hfeed .post:nth-child(#{$int}) a{
+		color: $link;
+		border-bottom: 2px solid $link;
+	}
+
+	.hfeed .post:nth-child(#{$int}) .posted-on,
+	.hfeed .post:nth-child(#{$int}) .byline{
+		
+	}
+
+	.hfeed .post:nth-child(#{$int}) .posted-on a,
+	.hfeed .post:nth-child(#{$int}) .byline a{
+		border: 2px solid $metaborder;
+		color: $bg;
+		background: $accent;
+		@if $whitebg{
+			background: $link;
+		}
+	}
+
+	.hfeed .post:nth-child(#{$int}) .posted-on a:hover,
+	.hfeed .post:nth-child(#{$int}) .byline a:hover,
+	.hfeed .post:nth-child(#{$int}) .byline a:focus,
+	.hfeed .post:nth-child(#{$int}) .posted-on a:focus{
+		background: $bg;
+		color: $accent;
+		border: 2px solid $accent;
+		@if $whitebg{
+			color: $link;
+			border: 2px solid $link;
+		}
+	}
+
+}
+
+//clearfix
+@mixin clearfix(){
+	&:after{
+		clear: both;
+		content: '';
+		display: table;
+	}
+}
