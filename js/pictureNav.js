@@ -1,8 +1,9 @@
 function KitePictureNav(){
-	this.section = document.querySelector( '.kite-picture-nav' );
-	this.menu = section.getElementsByClassName( 'picture-nav' )[0];
-	this.sources = this.section.dataset.sources;
-	this.lis = this.getLis();
+	this.section = document.querySelector( '.picture-nav-section' );
+	this.menu = this.section.getElementsByClassName( 'picture-nav' )[0];
+	this.mask = this.section.getElementsByClassName( 'picture-nav-mask' )[0];
+	this.image = null;
+	//this.sourceSet = JSON.parse(this.section.dataset.sources);
 
 	this.getLis = function(){
 		if ( ! this.menu ){
@@ -11,27 +12,43 @@ function KitePictureNav(){
 		let lis = [];
 		let currentLi = this.menu.firstChild;
 		while ( currentLi ){
-			lis.push( currentLi )
-			currentChild = currentLi.nextSibling;
+			lis.push( currentLi.getElementsByTagName( 'a' )[0] );
+			currentLi = currentLi.nextElementSibling;
 		}
+		this.lis = lis;
 	}
 
-	this.handleHover = function(){
-		this.section.style.backgroundImage = this.sources[0];
-	}
+	this.handleHover = function( event ){
+		const source = event.target.dataset.source;
+		if ( source == this.prevImage){
+			return;
+		}
 
-	this.test = function(){
-		console.log('sources', this.sources);
+		this.mask.className += ' fade';
+
+			window.setTimeout( () => {
+				this.mask.className = this.mask.className.replace( ' fade', '' );
+				if ( ! source ){
+					this.prevImage = '#63efa3';
+					this.section.style.background = '#63efa3';
+				} else{
+					this.prevImage = source;
+					this.section.style.backgroundImage = "url(" + source + ")";
+				}
+			}, 300);
+			
 	}
 
 	this.addListeners = function(){
+		const handleHover = this.handleHover.bind(this)
 		this.lis.forEach( function(li){
-			li.addEventListener( 'mouseenter', this.handleHover.bind(this) );
+			li.addEventListener( 'mouseenter', handleHover );
 		})
 	}
 
 	this.run = function(){
-		this.test();
+		this.getLis();
+		this.addListeners();
 	}
 }
 

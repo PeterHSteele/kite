@@ -1,17 +1,55 @@
 @import "../../../abstracts/abstracts";
 
 .picture-nav-section{
+	min-height: 500px;
 	padding: 50px 1rem;
 	background-size: cover;
 	background-repeat: no-repeat;
+	/*transition: background-image .2s .2s;*/
+	position: relative;
+	background-color: $color__greencal4;
 }
 
-.picture-nav ul{
-	list-style: none
+.picture-nav-mask{
+	background: #fff;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	z-index: 1;
+	transition: .3s opacity
 }
 
-.picture-nav ul li{
+nav.kite-picture-nav{
+	position: relative;
+	z-index: 2;
+}
+
+nav.kite-picture-nav h2{
+	transform: skewY(-5deg);
+	margin: 0 0 1.5em 3em;
+	padding: 0 0 0 1em;
+}
+
+nav.kite-picture-nav h2 span.nav-title-wrap{
+	background: $color__greencal2;
+	color: $color__greencal1;
+	padding: 0 .5em;
+}
+
+.picture-nav-mask.fade{
+	opacity: 1
+}
+
+ul.picture-nav{
+	list-style: none;
+}
+
+.picture-nav li{
 	padding: .5rem;
+	transform: skewY(-5deg);
 }
 
 .picture-nav a{
@@ -20,6 +58,8 @@
 	border-bottom: none;
 	color: $color__greencal1;
 	transition: .3s transform;
+	background: $color__greencal2;
+	padding: 0 .5rem;
 }
 
 .picture-nav li:hover a{

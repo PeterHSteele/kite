@@ -1,0 +1,75 @@
+@import "../../../abstracts/abstracts";
+
+.kite-blockquote-section{
+    padding: 75px 1rem;
+    background: #fcfffe
+}
+
+.kite-blockquote-section blockquote{
+    background: $color__greencal2;
+    color: $color__greencal1;
+    font-size: 1.6em;
+    padding: 1em;
+    position: relative;
+    width: 100%;
+}
+
+.kite-blockquote-section blockquote .bars{
+    position: absolute;
+    bottom: 48px;
+    right: -16px;
+    transform: rotate(45deg);
+}
+
+.kite-blockquote-section blockquote .bars .bar{
+    @include blockquote-bars();
+}
+/*
+.kite-blockquote-section blockquote .bars .bar-1{
+    height: 66px;
+    left: 0;
+    top: 0;
+}
+
+.kite-blockquote-section blockquote .bars .bar-2{
+    height: 44px;
+    left: 15px;
+    top: 11px;
+}
+
+.kite-blockquote-section blockquote .bars .bar-3{
+    height: 22px;
+    left: 30px;
+    top: 22px;
+}*/
+
+.kite-blockquote-section blockquote .bars .bar-1{
+    @include blockquote-bar( 1, 30 )
+}
+
+.kite-blockquote-section blockquote .bars .bar-2{
+    @include blockquote-bar( 2, 30 )
+}
+
+.kite-blockquote-section blockquote .bars .bar-3{
+    @include blockquote-bar( 3, 30 )
+}
+
+.kite-blockquote-section blockquote .opening-quote{
+    position: absolute;
+    top: -30px;
+    left: -40px;
+    font-size: 3em;
+    color: $color__greencal1;
+}
+
+.kite-blockquote-section blockquote cite{
+    font-size: 1.2em;
+}
+
+@media all and ( min-width: 500px){
+    .kite-blockquote-section blockquote{
+        width: 50%;
+        margin: 0 auto;
+    }
+}

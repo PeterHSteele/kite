@@ -28,6 +28,9 @@ function kite_jetpack_setup() {
 	// Add theme support for Responsive Videos.
 	add_theme_support( 'jetpack-responsive-videos' );
 
+	//Add support for jetpack menu.
+	add_theme_support( 'jetpack-social-menu' );
+
 	// Add theme support for Content Options.
 	add_theme_support(
 		'jetpack-content-options',

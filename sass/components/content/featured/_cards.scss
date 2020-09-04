@@ -8,20 +8,21 @@
 
 .card{
 	flex: 1 0;
-	padding: 1rem;
+	padding: 3rem 1rem;
 	margin: 3rem 1rem;
-	position: relative;
+	/*position: relative;*/
+	transform: skewY(5deg);
 }
 
 .card-spacer{
 	flex-basis: 100%;
 }
-
+/*
 .card:before,
 .card:after{
 	position: absolute;
 	transform: skewY(4deg);
-	height: 46px;
+	height: 30px;
 	width: 100%;
 	left: 0;
 	content:'';
@@ -30,18 +31,25 @@
 .card-1:before,
 .card-2:before,
 .card-3:before{
-	top: -20px;
-	/*border-top: 2px solid $color__greencal1;*/
+	top: -30px;
+	transform-origin: bottom left;
 }
 
 .card-1:after,
 .card-2:after,
 .card-3:after{
-	bottom: -22px;
-	/*border-bottom: 2px solid $color__greencal1;*/
+	bottom: -30px;
+	transform-origin: top right;
+	border-bottom: 2px solid $color__greencal1;
+}
+*/
+.card h2,
+.card p{
+	transform: skewY(-5deg);
 }
 
-@media all and ( min-width: 700px ){
+@media all and ( min-width: 800px ){
+	
 	.card{
 		margin: 1rem 1rem;
 	}
@@ -49,47 +57,49 @@
 	.card-spacer{
 		flex: 0 0;
 	}
-
+	/*
 	.card-1:before,
 	.card-2:before,
 	.card-3:before{
 		top: -30px;
-		/*border-top: 2px solid $color__greencal1;*/
+		border-top: 2px solid $color__greencal1;
 	}
 
 	.card-1:after,
 	.card-2:after,
 	.card-3:after{
 		bottom: -30px;
-		/*border-bottom: 2px solid $color__greencal1;*/
+		border-bottom: 2px solid $color__greencal1;
 	}
-
+	*/
 }
 
-.card-1,
-.card-1:before,
-.card-1:after{
+.card-1
+/*.card-1:before,
+.card-1:after*/{
 	background: $color__white;
 }
 
-.card-1:before{
-	border-top: 2px solid $color__greencal1;
-}
+.card-1{
+	/*border-top: 2px solid $color__greencal1;
+	border-bottom: 2px solid $color__greencal1;*/
+	border: 4px solid $color__greencal1;
+	box-shadow: 3px 3px $color__greencal4;
+	background: $color__greencal4;
+}	
 
-.card-1:after{
-	border-bottom: 2px solid $color__greencal1;
-}
-
-.card-2,
-.card-2:before,
-.card-2:after{
+.card-2
+/*.card-2:before,
+.card-2:after*/{
 	background: $color__greencal2;
+	border: 4px solid $color__greencal4;
+	box-shadow: 3px 3px $color__greencal2;
 	color: #000
 }
 
-.card-3,
-.card-3:before,
-.card-3:after{
+.card-3
+/*.card-3:before,
+.card-3:after*/{
 	background: $color__greencal1;
-	color: $color__white
+	color: $color__white;
 }

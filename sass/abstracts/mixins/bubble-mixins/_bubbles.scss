@@ -1,0 +1,53 @@
+@use "sass:math";
+
+@mixin bubble-mixin( $int, $left ){
+    
+    $o: math.percentage( $left );
+
+    .kite-bubble-#{$int}{
+        left: math.percentage( $left );
+        animation: 4s bubbleup#{$int} linear infinite;
+    }
+
+    @keyframes bubbleup#{$int}{
+
+        0%{
+            bottom: -100px;
+        }
+        
+        10%{
+            left:  calc( #{$o} - 15px );
+        }
+        
+        20%{
+            left:  #{$o};
+        }
+        
+        30%{
+            left: calc(  #{$o} - 20px);
+        }
+        
+        40%{
+            left: calc(  #{$o} - 5px);
+        }
+        
+        50%{
+            left: calc(  #{$o} + 25px);
+        }
+        
+        60%{
+            left: calc(  #{$o} + 10px);
+        }
+        
+        70%{
+            left:  #{$o};
+        }
+        
+        100%{
+            bottom: 100%;
+            left: calc(  #{$o} - 5px );
+        }
+        
+    }
+
+}

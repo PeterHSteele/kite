@@ -140,6 +140,67 @@ function kite_customize_register( $wp_customize ) {
 		'label' => __( 'Image for parallax section', 'kite' ),
 		'section' => 'kite-featured',
 	));
+
+	//blockquote section
+	$wp_customize->add_setting( 'kite-blockquote-text', array(
+		'default' => '',
+		'sanitize_callback' => 'sanitize_textarea_field'
+	));
+
+	$wp_customize->add_control( 'kite-blockquote-text', array(
+		'type' => 'textarea',
+		'label' => __( 'Featured Quote Text', 'kite' ),
+		'section' => 'kite-featured'
+	));
+
+	$wp_customize->add_setting( 'kite-blockquote-source', array(
+		'default' => '',
+		'sanitize_callback' => 'sanitize_text_field',
+	));
+
+	$wp_customize->add_control( 'kite-blockquote-source', array(
+		'type' => 'text',
+		'label' => 'Featured Quote Source',
+		'section' => 'kite-featured'
+	));	
+
+	//bubble panel
+	$wp_customize->add_setting( 'kite-bubble-text', array(
+		'default' => '',
+		'sanitize_callback' => 'sanitize_textarea_field'
+	));
+
+	$wp_customize->add_control( 'kite-bubble-text', array(
+		'type' => 'textarea',
+		'label' => __( '"Bubble" Panel Text', 'kite' ),
+		'section' => 'kite-featured'
+	));
+
+	//Copyright
+	$wp_customize->add_setting( 'kite_copyright_visible', array(
+		'default' => false,
+		'sanitize_callback' => 'kite_sanitize_checkbox'
+	) );
+
+	$wp_customize->add_control( 'kite_copyright_visible', array(
+		'label' => __( 'Show Copyright', 'kite' ),
+		'type'  => 'checkbox',
+		'section' => 'title_tagline',
+		'priority' => 100
+	));
+
+	$wp_customize->add_setting( 'kite_copyright_year', array(
+		'default' => date('o'),
+		'sanitize_callback' => 'kite_sanitize_year'
+	) );
+
+	$wp_customize->add_control( 'kite_copyright_year', array(
+		'label' => __( 'Copyright Year', 'kite' ),
+		'type'  => 'number',
+		'section' => 'title_tagline',
+		'priority' => 105
+	));
+
 }
 add_action( 'customize_register', 'kite_customize_register' );
 
@@ -154,6 +215,23 @@ function kite_parallax_image_choices(){
 	}
 	
 	return $choices;
+}
+
+/**
+* Sanitize the copyright year by converting to a number
+* and accepting up to four digits.
+*/
+
+function kite_sanitize_year( $year ){
+	return absint( substr( $year, 0, 4) );
+}
+
+/**
+* Sanitize a checkbox value by allowing only 0 or 1 to be saved
+*/
+
+function kite_sanitize_checkbox( $input ){
+    return intval( $input ) > 0 ? 1 : 0;
 }
 
 /**

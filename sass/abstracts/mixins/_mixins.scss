@@ -12,6 +12,56 @@
 
 //post styles ( index view )
 @mixin indexpost( $int, $bg, $color, $link, $accent, $metaborder, $whitebg: false ){
+	 .post:nth-child(#{$int}),
+	 .post:nth-child(#{$int})::before,
+	 .post:nth-child(#{$int})::after{
+		background: $bg;
+	}
+
+	 .post:nth-child(#{$int})::after{
+		box-shadow: 0px 8px $accent; 
+	}
+
+	 .post:nth-child(#{$int}){
+		color: $color;
+	}
+
+	 .post:nth-child(#{$int}) a{
+		color: $link;
+		border-bottom: 2px solid $link;
+	}
+
+	 .post:nth-child(#{$int}) .posted-on,
+	 .post:nth-child(#{$int}) .byline{
+		
+	}
+
+	 .post:nth-child(#{$int}) .posted-on a,
+	 .post:nth-child(#{$int}) .byline a{
+		border: 2px solid $metaborder;
+		color: $bg;
+		background: $accent;
+		@if $whitebg{
+			background: $link;
+		}
+	}
+
+	 .post:nth-child(#{$int}) .posted-on a:hover,
+	 .post:nth-child(#{$int}) .byline a:hover,
+	 .post:nth-child(#{$int}) .byline a:focus,
+	 .post:nth-child(#{$int}) .posted-on a:focus{
+		background: $bg;
+		color: $accent;
+		border: 2px solid $accent;
+		@if $whitebg{
+			color: $link;
+			border: 2px solid $link;
+		}
+	}
+
+}
+/*
+@mixin indexpost( $int, $bg, $color, $link, $accent, $metaborder, $whitebg: false ){
 	.hfeed .post:nth-child(#{$int}),
 	.hfeed .post:nth-child(#{$int})::before,
 	.hfeed .post:nth-child(#{$int})::after{
@@ -60,7 +110,7 @@
 	}
 
 }
-
+*/
 //clearfix
 @mixin clearfix(){
 	&:after{
@@ -69,3 +119,22 @@
 		display: table;
 	}
 }
+
+@mixin blockquote-bars(){
+	position: absolute;
+	background: $color__greencal1;
+	width: 4px;
+}
+
+@mixin blockquote-bar( $n, $factor ){
+	height: #{( 4 - $n ) * $factor }px;
+	left: ($n - 1) * 15px;
+    top: #{($n - 1)/2 * $factor}px;
+}
+
+@mixin link-style( $color ){
+	color: $color;
+    border-bottom: 2px solid $color;
+}
+
+@import "bubble-mixins/bubbles";

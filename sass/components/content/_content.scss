@@ -6,18 +6,26 @@ Featured Template
 
 /* Hero
 ---------------------------------*/
-
-@import "featured/hero.scss";
+@import "featured/hero";
 
 /* Cards
 ---------------------------------*/
 
-@import "featured/cards.scss";
+@import "featured/cards";
 
 /* Parallax Image
 ---------------------------------*/
-@import "featured/parallax.scss";
+@import "featured/parallax";
+
+/* Pull Quote
+---------------------------------*/
+
+@import "featured/blockquote";
 
 /* Picture Nav
 ---------------------------------*/
-@import "featured/nav.scss";
+@import "featured/nav";
+
+/* Bubbles
+---------------------------------*/
+@import "featured/bubbles";

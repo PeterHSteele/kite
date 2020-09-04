@@ -4,10 +4,38 @@
 Post Container
 -------------------*/
 
+body.hfeed{
+	background: $color__greencal2;
+}
+
+.post{
+	padding: 90px 1rem;
+	position: relative;
+	margin: 0;
+	transform: skewY(3deg);
+	transform-origin: bottom left;
+}
+
+.post > * {
+	transform: skewY(-3deg);
+}
+
+@media all and ( min-width: 800px ){
+	.post{
+		padding: 90px 1rem 70px;
+	}
+}
+/*
 .hfeed .post{
 	padding: 90px 1rem;
 	position: relative;
 	margin: 0;
+	transform: skewY(3deg);
+	transform-origin: bottom left;
+}
+
+.hfeed .post > * {
+	transform: skewY(-3deg);
 }
 
 @media all and ( min-width: 800px ){
@@ -32,3 +60,4 @@ Post Container
 	bottom: 0;
 	z-index: 1;
 }
+*/

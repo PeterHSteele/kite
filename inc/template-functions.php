@@ -85,7 +85,10 @@ function kite_parallax_image(){
 add_action( 'kite_parallax_image' , 'kite_parallax_image' );
 
 function kite_picture_nav(){
-	$locations = get_nav_menu_locations();
+	if ( ! has_nav_menu( 'menu-2' ) ){
+		return;
+	}
+	/*$locations = get_nav_menu_locations();
 	if (! has_nav_menu( 'menu-2') ){
 		return;
 	}
@@ -100,28 +103,119 @@ function kite_picture_nav(){
 		}
 	}
 	//var_dump($urls);
-	$json_urls = json_encode( $urls ); 
-	$menu_html = wp_nav_menu( 
-		array(
-			'theme_location' => 'menu-2',
-			'depth' => 1,
-			'fallback_cb' => false,
-			'menu_class' => 'picture-nav',
-			'echo' => false
-		)
-	); 
-
-
+	$json_urls = json_encode( $urls );  
 	
-	?>
+	*/?>
 	<div id="picture-nav" class="picture-nav-section" style="background-image: url(<?php// echo esc_url( $urls ) ?>)">
-		<nav class="kite-picture-nav" data-sources=<?php echo $json_urls ?>>
-		<?php
-			echo $menu_html;
-		?>
-		</nav>
+		<div class="picture-nav-mask"></div> 
+			<nav class="kite-picture-nav">
+			<h2><span class="nav-title-wrap"><?php echo esc_html( wp_get_nav_menu_name( 'menu-2' ) )?></span></h2>
+			<?php
+				wp_nav_menu( 
+					array(
+						'theme_location' => 'menu-2',
+						'depth' => 1,
+						'fallback_cb' => false,
+						'menu_class' => 'picture-nav',
+					)
+				);
+			?>
+			</nav>
 	</div> 
 	<?php
 }
 
 add_action( 'kite_picture_nav', 'kite_picture_nav' );
+
+function kite_picture_nav_add_images( $atts, $item, $args ){
+	if ( $args->theme_location === 'menu-2' ){
+		$featured_img_id = get_post_thumbnail_id( $item->object_id );
+		$image_attrs =  wp_get_attachment_image_src( $featured_img_id, 'full' );
+		$atts['data-source'] = $image_attrs[0];
+	}
+
+	return $atts;
+}
+
+add_filter( 'nav_menu_link_attributes', 'kite_picture_nav_add_images', 10, 3 );
+
+function kite_blockquote(){
+	$quote = get_theme_mod( 'kite-blockquote-text', '' );
+	if ( $quote ):
+	?>
+	<blockquote>
+		<span class="opening-quote">&ldquo;</span>
+		<p><?php echo apply_filters( 'the_content', $quote ) ?></p>
+		<cite><?php echo esc_html( get_theme_mod( 'kite-blockquote-source', '') ); ?></cite>
+		<div class="bars">
+			<div class="bar bar-1"></div>
+			<div class="bar bar-2"></div>
+			<div class="bar bar-3"></div>
+		</div>
+	</blockquote>
+	<?php
+	endif;
+}
+
+add_action( 'kite_blockquote_section', 'kite_blockquote' );
+
+function kite_bubble_section(){
+	$text = get_theme_mod( 'kite-bubble-text', '' );
+	if ( $text ) :
+	kite_bubble( 1, 80, 100, -1);
+	kite_bubble( 2, 60, 50, -3);
+	kite_bubble( 3, 80, 70, -2.5);
+	kite_bubble( 4, 90, 80, -.5);
+	kite_bubble( 5, 60, 70, -3.5);
+	?>
+	<div class="text-panel">
+		<!--<p><?php echo apply_filters( 'the_content', $text ); ?></p>-->
+		<?php
+		while ( have_posts() ) :
+			the_post();
+
+			get_template_part( 'template-parts/content', 'page' );
+
+			// If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif;
+
+		endwhile; // End of the loop.
+		?>
+	</div>
+	<?php
+	endif;
+}
+
+add_action( 'kite_bubble_panel', 'kite_bubble_section' );
+
+function kite_copyright(){
+	$show = get_theme_mod( 'kite_copyright_visible', false );
+	if ( ! $show ){
+		return '';
+	}
+
+	$year = get_theme_mod( 'kite_copyright_year', date( 'Y' ) );
+	?>
+	<div class="content-block">
+		<span class="copyright">
+		<?php
+		printf( 
+			'&copy; %1$s %2$s',
+			esc_html( $year ),
+			esc_html( get_bloginfo( 'name') )
+		);
+		?>
+		</span>
+	</div>'
+	<?php
+}
+
+add_action( 'kite_copyright', 'kite_copyright' );
+
+function kite_jetpack_menu(){
+	kite_social_menu();
+}
+
+add_action( 'kite_jetpack_menu', 'kite_jetpack_menu' );

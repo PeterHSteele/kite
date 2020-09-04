@@ -8,17 +8,22 @@
 	/*position: sticky;
 	top: 0;*/
 	z-index: 10;
-
+	/*
 	a.custom-logo-link,
-	a.custom-logo-fallback{
+	a.custom-logo-fallback,*/
+	.site-title a{
 		border-bottom: none;
 	}
 
-	a.custom-logo-fallback{
+	/*a.custom-logo-fallback,*/
+	.site-title a{
 		color: $color__greencal1;
 	}
-
 	
+	p.site-title a{
+		font-size: 2em;
+		font-family: $font__secondary;
+	}
 }
 
 .header-controls{

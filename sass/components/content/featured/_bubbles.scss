@@ -1,0 +1,110 @@
+@import "../../../abstracts/abstracts";
+
+.bubble-panel{
+    padding: 75px 1rem;
+    background: $color__greencal2;
+    color: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+.kite-bubble{
+    position: absolute;
+    box-shadow: 2px 2px $color__greencal1,
+    4px 4px #32d88f;
+    /*83px 3px 1px #54f00f;*/
+    box-shadow: 2px 2px 0px 0px #32d88f;
+    border-radius: 50%;
+    background: $color__greencal4;
+}
+
+@include bubble-mixin( 1, .05 );
+@include bubble-mixin( 2, .20 );
+@include bubble-mixin( 3, .45 );
+@include bubble-mixin( 4, .74 );
+@include bubble-mixin( 5, .90 );
+
+.shine{
+    position: absolute;
+    top: 30%;
+    left: 60%;
+    width: 20%;
+    height: 14%;
+    background: $color__greencal4;
+    border-radius: 40px;
+    transform: rotate(-20deg);
+}
+
+.shine:after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background: $color__greencal2;
+    border-radius: 40px 40px 100px 40px;
+}
+
+.bubble-panel .text-panel{
+    background: $color__greencal2;
+    color: $color__greencal3;
+    position: relative;
+    z-index: 1;
+    padding: 1em;
+    margin: 0 auto;
+}
+
+@media all and ( min-width: 500px ){
+    .bubble-panel .text-panel{
+        width: 80%;  
+    }
+}
+
+@media all and ( min-width: 900px ){
+    .bubble-panel .text-panel{
+        width: 50%;  
+    }
+}
+
+@keyframes bubbleup{
+
+    0%{
+        bottom: -100px
+    }
+    
+    10%{
+      left: 60px;
+    }
+    
+    20%{
+      left: 75px;
+    }
+    
+    30%{
+      left: 55px
+    }
+    
+    40%{
+      left: 80px;
+    }
+    
+    50%{
+      left: 100px;
+    }
+    
+    60%{
+      left: 85px;
+    }
+    
+    70%{
+      left: 75px;
+    }
+    
+    100%{
+      bottom: 100%;
+      left: 70px;
+    }
+    
+    
+  }

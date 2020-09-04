@@ -12,19 +12,10 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'kite' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'kite' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'kite' ), 'kite', '<a href="http://peterhsteele.com">@peterste</a>' );
-				?>
-		</div><!-- .site-info -->
+		<div class="footer-row">
+			<?php kite_social_menu(); ?>
+			<?php do_action( 'kite_copyright' ); ?>
+		</div>	
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

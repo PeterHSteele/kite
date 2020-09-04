@@ -27,24 +27,18 @@ get_header();
 		<div id="parallax-container" class="kite-parallax-container">
 			<?php do_action( 'kite_parallax_image' ); ?>
 		</div>
+
+		<div id="blockquote-section" class="kite-blockquote-section">
+			<?php do_action( 'kite_blockquote_section' ); ?>
+		</div>
+		
 		<?php do_action( 'kite_picture_nav' ); ?>
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
-
-			get_template_part( 'template-parts/content', 'page' );
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
+		<div class="bubble-panel">
+			<?php do_action( 'kite_bubble_panel' ); ?>
+		</div>
 
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

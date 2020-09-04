@@ -184,3 +184,36 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 		do_action( 'wp_body_open' );
 	}
 endif;
+
+if ( ! function_exists( 'kite_bubble' ) ) :
+
+	function kite_bubble( $n, $width, $height, $delay ){
+		$style = "
+			bottom: -100px;
+			width: {$width}px;
+			height: {$height}px;
+			animation-delay: {$delay}s;
+		";
+
+		?>
+		<div class="kite-bubble kite-bubble-<?php echo esc_attr( $n ) ?>" style="<?php echo esc_attr( $style ) ?>">
+			<div class="shine"></div>
+		</div>
+		<?php
+	}
+
+endif;
+
+if ( ! function_exists( 'kite_social_menu' ) ) :
+	
+	function kite_social_menu(){
+		if ( function_exists( 'jetpack_social_menu' ) ){
+			?>
+			<div class="content-block">
+				<?php jetpack_social_menu(); ?>
+			</div>
+			<?php 
+		}
+	}
+
+endif;

@@ -30,10 +30,10 @@
 			<?php
 			if ( has_custom_logo() ):
 				the_custom_logo();
-			else :
+			/*else :
 			?>
 				<h2><a class="custom-logo-fallback" href="<?php echo esc_url(home_url('/')) ?>"><?php bloginfo('name'); ?></a></h2>
-			<?php
+			<?php*/
 			endif;
 			if ( is_front_page() && is_home() ) :
 				?>
