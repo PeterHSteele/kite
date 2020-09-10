@@ -34,7 +34,22 @@
 		elseif ( is_search() ) :
 			?>
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'kite' ); ?></p>
+			<p>
+				<?php 
+				echo wp_kses( 
+						sprintf( 
+							/* translators: %1$s: search query */
+							__( 'Sorry, but nothing matched <span class="search-term">%1$s</span>. Please try again with some different keywords.', 'kite' ),
+							get_search_query( true ),
+						),
+						array( 
+							'span' => array( 
+								'class' => array(),
+							)
+						)
+					); 
+				?>
+			</p>
 			<?php
 			the_widget( 'WP_Widget_Recent_Posts' );
 

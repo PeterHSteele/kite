@@ -1,9 +1,8 @@
 @import "../../abstracts/abstracts";
 
 .site-footer{
-    padding: 10px 1rem 0;
+    padding: 10px 1rem;
     background: $color__white;
-    min-height: 40px;
 
     &.plus-margin-top{
         margin-top: calc( 100% / 14 );
