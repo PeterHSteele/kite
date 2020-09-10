@@ -36,7 +36,7 @@
 
 			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'kite' ); ?></p>
 			<?php
-			get_search_form();
+			the_widget( 'WP_Widget_Recent_Posts' );
 
 		else :
 			?>

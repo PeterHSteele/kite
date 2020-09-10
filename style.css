@@ -2124,7 +2124,8 @@ Search Results
   border: 2px solid #10b66f;
 }
 
-.page {
+.single .post,
+.type-page {
   margin-bottom: calc( .052 * 100% );
 }
 

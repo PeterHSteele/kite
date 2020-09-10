@@ -1,7 +1,7 @@
     @import "../../../abstracts/abstracts";
     
     .single .post,
-    .page{
+    .type-page{
        background: $color__white;
    }
 
@@ -36,7 +36,8 @@
        border: 2px solid $color__greencal1;
    }
 
-   .page{
+   .single .post,
+   .type-page{
        margin-bottom: calc( .052 * 100% );
    }
 
