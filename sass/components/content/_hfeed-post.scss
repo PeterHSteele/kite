@@ -10,7 +10,7 @@
 
 /* Child 3n+2 */
 
-@include indexpost( '3n+2', $color__greencal2, #000, $color__greencal1, $color__greencal1, $color__greencal4, $color__greencal3, $color__greencal4, $whitebg: false );
+@include indexpost( '3n+2', $color__greencal2, #000, $color__greencal1, $color__greencal1, $color__greencal4, $color__greencal3, $color__white, $whitebg: false );
 
 .hfeed .post:nth-child(3n) .wp-block-image,
 .hfeed .post:nth-child(3n) a.post-thumbnail{

@@ -617,6 +617,18 @@ textarea {
   width: 100%;
 }
 
+/* Macro Layout
+--------------------------------------------- */
+#page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#primary {
+  flex: 1 0;
+}
+
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
@@ -974,7 +986,8 @@ body {
   background: #f0fff9;
 }
 
-.post {
+.post,
+.type-page {
   padding: 90px 1rem;
   position: relative;
   margin: 0;
@@ -982,7 +995,8 @@ body {
   transform-origin: bottom left;
 }
 
-.post > * {
+.post > *,
+.type-page > * {
   transform: skewY(-3deg);
 }
 
@@ -1220,7 +1234,7 @@ body {
 
 .hfeed .post:nth-child(3n+2) .wp-block-quote {
   /*border: 2px solid $metaborder;*/
-  background: #63efa3;
+  background: #fff;
   /*
   a{
   	@include link-style( $bg );
@@ -1228,7 +1242,7 @@ body {
 }
 
 .hfeed .post:nth-child(3n+2) .wp-block-code {
-  background: #63efa3;
+  background: #fff;
 }
 
 .hfeed .post:nth-child(3n) .wp-block-image,
@@ -1358,14 +1372,8 @@ h2 {
 
 .posted-on,
 .byline {
-  /*position: absolute;
-  bottom: 0;
-  left: 0;
-  content: '';*/
   transform: skewX(-5deg);
   transform-origin: bottom left;
-  /*transform: skewX(-5deg);
-  transform-origin: bottom left;*/
 }
 
 .posted-on {
@@ -1381,11 +1389,19 @@ h2 {
   font-size: 1.2em;
 }
 
+.page .site-main {
+  background: #f0fff9;
+}
+
 /* Layout */
 .post .post-thumbnail,
 .post .entry-header,
 .post .entry-content,
-.post .entry-footer {
+.post .entry-footer,
+.type-page .post-thumbnail,
+.type-page .entry-header,
+.type-page .entry-content,
+.type-page .entry-footer {
   margin: 0 auto;
 }
 
@@ -1393,7 +1409,11 @@ h2 {
   .post .post-thumbnail,
 .post .entry-header,
 .post .entry-content,
-.post .entry-footer {
+.post .entry-footer,
+.type-page .post-thumbnail,
+.type-page .entry-header,
+.type-page .entry-content,
+.type-page .entry-footer {
     width: 70%;
   }
 }
@@ -2067,19 +2087,23 @@ Search Results
 
 /* Single Page Or Post
 --------------------------------------------- */
-.single .post {
+.single .post,
+.page {
   background: #fff;
 }
 
-.single .post::after {
+.single .post::after,
+.page::after {
   box-shadow: 0px 8px #f0fff9;
 }
 
-.single .post {
+.single .post,
+.page {
   color: #404040;
 }
 
-.single .site-main a {
+.single .site-main a,
+.page .site-main a {
   color: #10b66f;
   border-bottom: 2px solid #10b66f;
 }
@@ -2100,7 +2124,7 @@ Search Results
   border: 2px solid #10b66f;
 }
 
-.single .post {
+.page {
   margin-bottom: calc( .052 * 100% );
 }
 

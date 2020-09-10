@@ -1,18 +1,22 @@
     @import "../../../abstracts/abstracts";
     
-    .single .post{
+    .single .post,
+    .page{
        background: $color__white;
    }
 
-    .single .post::after{
+    .single .post::after,
+    .page::after{
        box-shadow: 0px 8px $color__greencal2; 
    }
 
-    .single .post{
+    .single .post,
+    .page{
        color: #404040;
    }
 
-    .single .site-main a{
+    .single .site-main a,
+    .page .site-main a{
        @include link-style( $color__greencal1 );
    }
 
@@ -32,7 +36,7 @@
        border: 2px solid $color__greencal1;
    }
 
-   .single .post{
+   .page{
        margin-bottom: calc( .052 * 100% );
    }
 

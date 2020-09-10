@@ -8,7 +8,8 @@ body{
 	background: $color__greencal2;
 }
 
-.post{
+.post,
+.type-page{
 	@include slant-spacing();
 	position: relative;
 	margin: 0;
@@ -16,7 +17,8 @@ body{
 	transform-origin: bottom left;
 }
 
-.post > * {
+.post > *,
+.type-page > * {
 	transform: skewY(-3deg);
 }
 

@@ -43,13 +43,7 @@ entry header, entry-content and layout------*/
 
  .posted-on,
  .byline{
-	/*position: absolute;
-	bottom: 0;
-	left: 0;
-	content: '';*/
 	@include skewX();
-	/*transform: skewX(-5deg);
-	transform-origin: bottom left;*/
 }
 
  .posted-on{
@@ -65,12 +59,20 @@ entry header, entry-content and layout------*/
 	font-size: 1.2em;
 }
 
+.page .site-main{
+	background: $color__greencal2;
+}
+
 /* Layout */
 
  .post .post-thumbnail,
  .post .entry-header,
  .post .entry-content,
- .post .entry-footer{
+ .post .entry-footer,
+ .type-page .post-thumbnail,
+ .type-page .entry-header,
+ .type-page .entry-content,
+ .type-page .entry-footer{
 	margin: 0 auto;
 }
 
@@ -78,7 +80,11 @@ entry header, entry-content and layout------*/
 	 .post .post-thumbnail,
 	 .post .entry-header,
 	 .post .entry-content,
-	 .post .entry-footer{
+	 .post .entry-footer,
+	 .type-page .post-thumbnail,
+	 .type-page .entry-header,
+	 .type-page .entry-content,
+	 .type-page .entry-footer{
 		width: 70%;
 	}
 }
