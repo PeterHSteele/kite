@@ -1,0 +1,50 @@
+@import "../../../abstracts/abstracts";
+
+.search{
+
+    .page > *,
+    .post > *,
+    .page-content > * {
+        margin: 0 auto;
+    }
+
+    .page-content{
+        @include slant-spacing();
+    }
+
+    .no-results{
+        color: #000;
+    }
+
+    .page-header{
+        background: $color__greencal1;
+        @include skewY( 3deg );
+        padding: 3em 1em;
+        border-bottom: 8px solid $color__white;
+
+        & > *{
+            @include center-block-width( 70% );
+        }
+
+        h1{
+            @include skewY( -3deg );
+            color: $color__white;
+        }
+
+        .search-term{
+            display: inline-block;
+            padding: 0 .5em;
+            @include skewX();
+            background: $color__white;
+            color: $color__greencal1;
+        }
+    }
+
+    @media all and (min-width: 800px){
+        .post > *,
+        .page > *,
+        .page-content > * {
+           width: 70%
+        }
+    }
+}

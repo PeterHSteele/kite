@@ -10,10 +10,7 @@
 ?>
 
 <nav id="site-navigation" class="main-navigation">
-	<button class="nav-close">
-		<span class="screen-reader-text"><?php esc_html_e( 'close', 'kite' ); ?></span>
-		<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/kite-nav-close2.svg' ) ?>" aria-hidden>
-	</button>
+	<?php kite_close_button( true ); ?>
 	<div class="nav-spacer">
 	<?php
 		wp_nav_menu(

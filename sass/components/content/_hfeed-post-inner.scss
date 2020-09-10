@@ -5,22 +5,22 @@ entry header, entry-content and layout------*/
 
 /* Post Header */
 
-.hfeed .entry-header{
+ .entry-header{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	padding: .5rem 0;
 }
 
-.hfeed h2{
+ h2{
 	flex: 2 0;
 }
 
-.hfeed .post h2.entry-title a{
+ .post h2.entry-title a{
 	border-bottom: none;
 }
 
-.hfeed .entry-meta{
+ .entry-meta{
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -29,34 +29,35 @@ entry header, entry-content and layout------*/
 }
 
 @media all and ( min-width: 950px ){
-	.hfeed .entry-meta{
+	 .entry-meta{
 		flex: 1 0;
 		justify-content: flex-end;
 	}
 }
 
-.hfeed .posted-on,
-.hfeed .byline{
+ .posted-on,
+ .byline{
 	position: relative;
 	display: block;
 }
 
-.hfeed .posted-on,
-.hfeed .byline{
+ .posted-on,
+ .byline{
 	/*position: absolute;
 	bottom: 0;
 	left: 0;
 	content: '';*/
-	transform: skewX(-5deg);
-	transform-origin: bottom left;
+	@include skewX();
+	/*transform: skewX(-5deg);
+	transform-origin: bottom left;*/
 }
 
-.hfeed .posted-on{
+ .posted-on{
 	margin: 0 .5rem 0 0;
 }
 
-.hfeed .post .posted-on a,
-.hfeed .post .byline a{
+ .post .posted-on a,
+ .post .byline a{
 	border-bottom: none;
 	display: block;
 	padding: 8px;
@@ -66,18 +67,18 @@ entry header, entry-content and layout------*/
 
 /* Layout */
 
-.hfeed .post a.post-thumbnail,
-.hfeed .post .entry-header,
-.hfeed .post .entry-content,
-.hfeed .post .entry-footer{
+ .post .post-thumbnail,
+ .post .entry-header,
+ .post .entry-content,
+ .post .entry-footer{
 	margin: 0 auto;
 }
 
 @media all and ( min-width: 800px ){
-	.hfeed .post a.post-thumbnail,
-	.hfeed .post .entry-header,
-	.hfeed .post .entry-content,
-	.hfeed .post .entry-footer{
+	 .post .post-thumbnail,
+	 .post .entry-header,
+	 .post .entry-content,
+	 .post .entry-footer{
 		width: 70%;
 	}
 }

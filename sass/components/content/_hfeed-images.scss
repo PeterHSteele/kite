@@ -3,37 +3,36 @@
 /*---------------------
 post index images-------*/
 
-.hfeed .wp-block-image figcaption{
+ .wp-block-image figcaption{
 	font-size: .8em;
 	color: #505050;
 	font-style: italic;
 }
 
-.hfeed .post .wp-block-image a{
+ .post .wp-block-image a{
 	border-bottom: none;
 }
 
-.hfeed .post a.post-thumbnail{
+ .post a.post-thumbnail{
 	display:block;
 	border: none;
 }
 
-.hfeed .post a.post-thumbnail img{
-	max-height: 500px;
+ .post .post-thumbnail img{
+	max-height: 700px;
 	object-fit: cover;
 }
 
-.hfeed .post a.post-thumbnail{
+ .hfeed .post-thumbnail img{
+	 max-height: 500px;
+ }
+
+ .post a.post-thumbnail{
 	@include clearfix();
 }
 
-.hfeed .post:nth-child(even) a.post-thumbnail img{
-	display: block;
-	float: right;
-}
-
-.hfeed .post:not(:nth-child(3n)) .wp-block-image img,
-.hfeed .post:not(:nth-child(3n)) a.post-thumbnail img{
+ .post:not(:nth-child(3n)) .wp-block-image img,
+ .post:not(:nth-child(3n)) a.post-thumbnail img{
 	padding: .75rem;
 	background: #fff;
 }

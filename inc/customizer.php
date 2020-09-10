@@ -62,6 +62,30 @@ function kite_customize_register( $wp_customize ) {
 		'section' => 'kite-featured'
 	));
 
+	$wp_customize->add_setting( 'kite-hero-card-cta', array(
+		'default' => '',
+		'sanitize_callback' => 'sanitize_text_field',
+	));
+
+	$wp_customize->add_control( 'kite-hero-card-cta', array(
+		'type' => 'text',
+		'label' => __( 'Hero Section Call to Action Text', 'kite' ),
+		'section' => 'kite-featured'
+	));
+
+	$wp_customize->add_setting( 'kite-hero-card-cta-link', array(
+		'default' => '',
+		'sanitize_callback' => 'sanitize_text_field',
+	));
+
+	$wp_customize->add_control( 'kite-hero-card-cta-link', array(
+		'type' => 'text',
+		'label' => __( 'Hero Section Call To Action Link', 'kite' ),
+		'section' => 'kite-featured'
+	));
+
+	//Cards
+
 	$wp_customize->add_setting( 'kite-featured-card-1-title', array(
 		'default' => '',
 		'sanitize_callback' => 'sanitize_text_field',

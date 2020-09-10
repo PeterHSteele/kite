@@ -56,5 +56,8 @@
 			<button class="search-toggle" aria-controls="search-form" aria-expanded="false"><?php esc_html_e( 'Search', 'kite' ); ?></button>
 		</div>
 
-		<?php get_template_part( 'template-parts/navigation', 'top' ); ?>
+		<?php 
+		get_template_part( 'template-parts/navigation', 'top' ); 
+		get_search_form();
+		?>
 	</header><!-- #masthead -->

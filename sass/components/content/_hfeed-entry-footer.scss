@@ -9,8 +9,8 @@ entry footer
 	@include clearfix();
 }
 
-.hfeed .post .cat-links a,
-.hfeed .post .tags-links a{
+.post div.cat-links a,
+.post div.tags-links a{
 	color: #fff;
 	border-bottom: none;
 	padding: .5rem;
@@ -27,10 +27,10 @@ entry footer
 	}
 }
 
-.hfeed .post .tags-links a:hover,
-.hfeed .post .cat-links a:hover,
-.hfeed .post .tags-links a:focus,
-.hfeed .post .cat-links a:focus{
+.post div.tags-links a:hover,
+.post div.cat-links a:hover,
+.post div.tags-links a:focus,
+.post div.cat-links a:focus{
 	color: $color__greencal3;
 	background: $color__greencal2;
 }

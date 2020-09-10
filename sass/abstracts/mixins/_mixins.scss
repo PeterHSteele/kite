@@ -5,17 +5,44 @@
 	margin-right: auto;
 }
 
+@mixin center-block-width( $width ){
+	@include center-block();
+	width: $width;
+}
+
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
 	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
 
+@mixin attn-btn( $border, $color, $background ){
+	border: 2px solid $border;
+	color: $color;
+	background: $background;
+}
+
+@mixin skewX(){
+	transform: skewX(-5deg);
+	transform-origin: bottom left;
+}
+
+@mixin skewY( $deg ){
+	transform: skewY( $deg );
+	transform-origin: bottom left;
+}
+
+@mixin slant-spacing(){
+	padding: 90px 1rem;
+}
+
 //post styles ( index view )
-@mixin indexpost( $int, $bg, $color, $link, $accent, $metaborder, $whitebg: false ){
-	 .post:nth-child(#{$int}),
-	 .post:nth-child(#{$int})::before,
-	 .post:nth-child(#{$int})::after{
+@mixin indexpost( $int, $bg, $color, $link, $accent, $metaborder, $blockcolor, $whitebg: false ){
+	 .post:nth-child(#{$int}){
 		background: $bg;
+	}
+
+	.post:nth-child(#{$int}){
+		border-bottom: 8px solid $accent;
 	}
 
 	 .post:nth-child(#{$int})::after{
@@ -38,18 +65,31 @@
 
 	 .post:nth-child(#{$int}) .posted-on a,
 	 .post:nth-child(#{$int}) .byline a{
+		@if $whitebg{
+			@include attn-btn( $metaborder, $bg, $link );
+		} @else {
+			@include attn-btn( $metaborder, $bg, $accent );
+		}
+		/*
 		border: 2px solid $metaborder;
 		color: $bg;
 		background: $accent;
 		@if $whitebg{
 			background: $link;
 		}
+		*/
 	}
 
 	 .post:nth-child(#{$int}) .posted-on a:hover,
 	 .post:nth-child(#{$int}) .byline a:hover,
 	 .post:nth-child(#{$int}) .byline a:focus,
 	 .post:nth-child(#{$int}) .posted-on a:focus{
+		@if $whitebg{
+			@include attn-btn( $link, $link, $bg );
+		} @else {
+			@include attn-btn( $accent, $accent, $bg );
+		}
+		/*
 		background: $bg;
 		color: $accent;
 		border: 2px solid $accent;
@@ -57,60 +97,21 @@
 			color: $link;
 			border: 2px solid $link;
 		}
+		*/
+	}
+
+	//Blocks
+	.hfeed .post:nth-child(#{$int}) .wp-block-quote{
+		/*border: 2px solid $metaborder;*/
+		background: $color__greencal3;
+		/*
+		a{
+			@include link-style( $bg );
+		}*/
 	}
 
 }
-/*
-@mixin indexpost( $int, $bg, $color, $link, $accent, $metaborder, $whitebg: false ){
-	.hfeed .post:nth-child(#{$int}),
-	.hfeed .post:nth-child(#{$int})::before,
-	.hfeed .post:nth-child(#{$int})::after{
-		background: $bg;
-	}
 
-	.hfeed .post:nth-child(#{$int})::after{
-		box-shadow: 0px 8px $accent; 
-	}
-
-	.hfeed .post:nth-child(#{$int}){
-		color: $color;
-	}
-
-	.hfeed .post:nth-child(#{$int}) a{
-		color: $link;
-		border-bottom: 2px solid $link;
-	}
-
-	.hfeed .post:nth-child(#{$int}) .posted-on,
-	.hfeed .post:nth-child(#{$int}) .byline{
-		
-	}
-
-	.hfeed .post:nth-child(#{$int}) .posted-on a,
-	.hfeed .post:nth-child(#{$int}) .byline a{
-		border: 2px solid $metaborder;
-		color: $bg;
-		background: $accent;
-		@if $whitebg{
-			background: $link;
-		}
-	}
-
-	.hfeed .post:nth-child(#{$int}) .posted-on a:hover,
-	.hfeed .post:nth-child(#{$int}) .byline a:hover,
-	.hfeed .post:nth-child(#{$int}) .byline a:focus,
-	.hfeed .post:nth-child(#{$int}) .posted-on a:focus{
-		background: $bg;
-		color: $accent;
-		border: 2px solid $accent;
-		@if $whitebg{
-			color: $link;
-			border: 2px solid $link;
-		}
-	}
-
-}
-*/
 //clearfix
 @mixin clearfix(){
 	&:after{
@@ -120,21 +121,24 @@
 	}
 }
 
-@mixin blockquote-bars(){
+@mixin pseudo-ele(){
 	position: absolute;
-	background: $color__greencal1;
-	width: 4px;
-}
-
-@mixin blockquote-bar( $n, $factor ){
-	height: #{( 4 - $n ) * $factor }px;
-	left: ($n - 1) * 15px;
-    top: #{($n - 1)/2 * $factor}px;
+	content: "";
 }
 
 @mixin link-style( $color ){
 	color: $color;
     border-bottom: 2px solid $color;
 }
+
+@mixin kite-frame( $per, $bottom, $left, $deg){
+	#{$per}%{
+		bottom: #{$bottom}px;
+		left: calc( 50% - #{$left}px);
+		transform: rotate( #{$deg}deg );
+	}
+}
+
+@import "featured-mixins/featured";
 
 @import "bubble-mixins/bubbles";

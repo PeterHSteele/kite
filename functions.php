@@ -150,10 +150,15 @@ function kite_scripts() {
 	//font
 	wp_enqueue_style( 'kite-playfair-font', 'https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap' );
 	wp_enqueue_style( 'kite-khula-font', 'https://fonts.googleapis.com/css2?family=Khula:wght@400;600&display=swap' );
+	wp_enqueue_style( 'kite-source-code-font', 'https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap' );
 
 	//Picture Nav JS
 	if ( is_page_template( 'page-templates/featured.php' ) ){
 		wp_enqueue_script( 'kite-picture-nav-js', get_template_directory_uri() . '/js/pictureNav.js', array(), KITE_VERSION, true );
+	}
+
+	if ( is_single() ){
+		//wp_enqueue_script( 'kite-graphic', get_template_directory_uri() . '/js/kite-graphic.js', array(), KITE_VERSION, true );
 	}
 
 	wp_enqueue_script( 'kite-js', get_template_directory_uri() . '/js/kite.js', array(), KITE_VERSION, true );

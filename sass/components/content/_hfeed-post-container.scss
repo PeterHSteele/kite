@@ -4,12 +4,12 @@
 Post Container
 -------------------*/
 
-body.hfeed{
+body{
 	background: $color__greencal2;
 }
 
 .post{
-	padding: 90px 1rem;
+	@include slant-spacing();
 	position: relative;
 	margin: 0;
 	transform: skewY(3deg);
@@ -26,7 +26,7 @@ body.hfeed{
 	}
 }
 /*
-.hfeed .post{
+ .post{
 	padding: 90px 1rem;
 	position: relative;
 	margin: 0;
@@ -34,17 +34,17 @@ body.hfeed{
 	transform-origin: bottom left;
 }
 
-.hfeed .post > * {
+ .post > * {
 	transform: skewY(-3deg);
 }
 
 @media all and ( min-width: 800px ){
-	.hfeed .post{
+	 .post{
 		padding: 90px 1rem 70px;
 	}
 }
 
-.hfeed .post::after{
+ .post::after{
 	position: absolute;
 	background-color: inherit;
 	height: 70px;
@@ -56,7 +56,7 @@ body.hfeed{
 	transform-origin: bottom left;
 }
 
-.hfeed .post::after{
+ .post::after{
 	bottom: 0;
 	z-index: 1;
 }

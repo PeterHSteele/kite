@@ -45,10 +45,20 @@ add_action( 'wp_head', 'kite_pingback_header' );
 function kite_hero_card(){
 	$title = get_theme_mod( 'kite-hero-card-title', '' );
 	$text = get_theme_mod( 'kite-hero-card-body', '' );
+	$cta_text = get_theme_mod( 'kite-hero-card-cta', '' );
+	$cta_link = get_theme_mod( 'kite-hero-card-cta-link', '' );
 	?>
 	<div class="hero-card">
 		<h2><?php echo esc_html($title) ?></h2>
-		<p><?php echo esc_html($text) ?></p>
+		<?php 
+		echo apply_filters( 'the_content', $text);
+		printf( 
+			'<a href="%1$s" class="kite-cta"><span class="kite-cta-text">%2$s</span></a>',
+			esc_url( $cta_link ),
+			esc_html( $cta_text )
+		);
+		?>
+
 	</div>
 	<?php
 }
@@ -208,7 +218,7 @@ function kite_copyright(){
 		);
 		?>
 		</span>
-	</div>'
+	</div>
 	<?php
 }
 
@@ -219,3 +229,24 @@ function kite_jetpack_menu(){
 }
 
 add_action( 'kite_jetpack_menu', 'kite_jetpack_menu' );
+
+function kite_search_form( $html ){
+	$before_close = explode( '</form>', $html );
+	$before_close[0] .= kite_close_button( false ) . '</form>';/* . sprintf( 
+		'<img src="%1$s" class="kite-graphic animated"  aria-hidden>', 
+		esc_url( get_template_directory_uri() . "/assets/kite-img.svg" )
+	) .  '</form>';*/ 
+	return implode( '', $before_close );
+}
+
+add_action( 'get_search_form', 'kite_search_form', 1000, 1 );
+
+function kite_footer_class(){
+	$class = 'site-footer';
+	if ( !is_singular() && !is_paged() ){
+		$class .= ' plus-margin-top';
+	}
+	echo $class;
+}
+
+add_action( 'kite_footer_class', 'kite_footer_class' );

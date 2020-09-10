@@ -53,6 +53,16 @@
     z-index: 1;
     padding: 1em;
     margin: 0 auto;
+
+    a {
+      @include link-style( $color__greencal1 );
+
+      &:hover,
+      &:focus{
+        border: none;
+      }
+    }
+
 }
 
 @media all and ( min-width: 500px ){

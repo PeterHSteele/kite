@@ -11,7 +11,7 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
+	<footer id="colophon" class="<?php do_action('kite_footer_class')?>">
 		<div class="footer-row">
 			<?php kite_social_menu(); ?>
 			<?php do_action( 'kite_copyright' ); ?>

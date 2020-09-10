@@ -1,7 +1,103 @@
+@import "../../abstracts/abstracts";
+
 .comment-content a {
 	word-wrap: break-word;
 }
 
+.comments-area{
+	margin-top: 3rem;
+	padding: 3rem 0;
+	background: $color__white;
+	position: relative;
+
+	.comment-list{
+		padding: 0;
+		
+		li{
+			margin: 0
+		}
+
+		ol{
+			margin: 0;
+			padding: 0 0 0 1rem;
+		}
+	}
+
+	.comment {
+		margin: 0 0 0 1rem;
+		padding: 1rem 0;
+		border-bottom: 1px dotted #eee;
+
+		.comment-author{ 
+			.says{
+				display: none;
+			}
+
+			.fn{
+				padding: 0 .5em;
+			}
+
+			.avatar{
+				border-radius: 50%;
+			}
+		}
+
+		.comment-content p{
+			margin: 0;
+		}
+
+	}
+
+	.comment-metadata a{
+		font-size: .8em;
+		color: $color__text-input;
+		border-bottom: none;
+
+		&:hover{
+			color: $color__greencal1;
+		}
+	}
+	
+/*
+	&:before,
+	&:after{
+		@include pseudo-ele();
+		left: 0;
+		bottom: 100%;
+	}
+
+	&:before{
+		background: $color__white;
+		transform: skewY(3deg);
+		transform-origin: top left;
+		height: calc( 100% * .0524 * 2.4 );
+		width: 100%;
+	}
+*/
+
+ input[type=submit]{
+	 @include attn-btn( $color__greencal4, $color__white, $color__greencal1 );
+	 @include skewX();
+	 font: bold 1.2em $font__secondary;
+
+	 &:hover{
+		 @include attn-btn( $color__greencal1, $color__greencal1, $color__white )
+	 }
+ }
+}
+
+
+
+.comments-area > *{
+	/*transform: skewY(-3deg);*/
+}
+
 .bypostauthor {
 	display: block;
+}
+
+@media all and ( min-width: 800px ){
+	.comments-area > * {
+		@include center-block-width( 70% );
+	}
 }

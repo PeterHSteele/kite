@@ -16,24 +16,65 @@ $figure-top: 5vh;
 .featured-hero .hero-content{
 	background-repeat: no-repeat;
 	width: 90%;
-	margin: 0 auto;
-	padding: 2rem;
+	margin: 60 80px;
+
+	h2, 
+	p,
+	.kite-cta-text{
+		color: #000;
+		font-family: $font__special;
+		color: $color__greencal1;
+		padding: 5px;
+		margin: 2rem 0;
+		position: relative;
+		background: rgba(250,254,252,.8);
+		background: $color__white;
+	}
+
+	h2{
+		font-family: $font__secondary;
+	}
+
+	.kite-cta{
+		border-bottom: none;
+		display: block;
+		/*transform: skewY(5deg);
+		transform-origin: top left;*/
+	}
+
+	.kite-cta-text{
+		@include link-style( $color__greencal1 );
+
+		&:hover{
+			background: $color__greencal1;
+			color: $color__white
+		}
+	}
+	/*
+	p:after,
+	h2:after{
+		@include afterblocks();
+		left: 60%
+	}
+
+	p:before,
+	h2:before{
+		@include afterblocks();
+		left: 40%;
+	}
+	*/
+}
+
+
+@media all and (min-width: 600px){
+	.featured-hero .hero-content{
+		width: 60%
+	}
 }
 
 @media all and (min-width: 1024px){
 	.featured-hero .hero-content{
-		width: 50%;
-		padding: 3rem;
+		width: 40%;
+		padding: 1.5rem;
 	}
-}
-
-@media all and (min-width: 600px){
-	.featured-hero .hero-content{
-		width: 70%
-	}
-}
-
-.featured-hero .hero-content p,
-.featured-hero .hero-content h2{
-	color: $color__white;
 }

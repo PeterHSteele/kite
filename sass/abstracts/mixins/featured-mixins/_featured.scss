@@ -1,0 +1,20 @@
+@mixin afterblocks(){
+    position: absolute;
+    bottom: -1.5rem;
+    background: #fafcfe;
+    width: 16px;
+    height: 16px;
+    content: "";
+}
+
+@mixin blockquote-bars(){
+	position: absolute;
+	background: $color__greencal1;
+	width: 4px;
+}
+
+@mixin blockquote-bar( $n, $factor ){
+	height: #{( 4 - $n ) * $factor }px;
+	left: ($n - 1) * 15px;
+    top: #{($n - 1)/2 * $factor}px;
+}

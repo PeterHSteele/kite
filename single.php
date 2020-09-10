@@ -25,6 +25,8 @@ get_header();
 				)
 			);
 
+			//kite_the_graphic();
+
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
 				comments_template();
@@ -36,5 +38,4 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

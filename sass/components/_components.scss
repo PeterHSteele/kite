@@ -19,6 +19,14 @@
 @import "content/hfeed-post-inner";
 @import "content/content";
 
+/* Single Page Or Post
+--------------------------------------------- */
+@import "content/single/single";
+
+/* Blocks
+--------------------------------------------- */
+@import "content/blocks/blocks";
+
 /* Comments
 --------------------------------------------- */
 @import "comments/comments";

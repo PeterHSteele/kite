@@ -1,7 +1,8 @@
 @import "../../abstracts/abstracts";
 
-.main-navigation {
-	position: absolute;
+.main-navigation,
+.search-form {
+	position: fixed;
 	top: 0;
 	opacity: 0;
 	left: -9999px;
@@ -153,16 +154,22 @@
 	display: block;
 }
 
-.comment-navigation,
-.posts-navigation,
-.post-navigation {
+nav.comment-navigation,
+nav.posts-navigation,
+nav.post-navigation {
+
+	padding: 3em 1em 0;
 
 	.site-main & {
-		margin: 0 0 1.5em;
+		margin: 3em 0 1.5em;
 	}
 
 	.nav-links {
 		display: flex;
+	}
+
+	.nav-links a{
+		font-size: 1.5em;
 	}
 
 	.nav-previous {
@@ -173,8 +180,91 @@
 		text-align: end;
 		flex: 1 0 50%;
 	}
+
+	.nav-previous a,
+	.nav-next a{
+
+		position: relative;
+		border-bottom: none;
+		color: $color__greencal1;
+
+		&:after{
+			@include pseudo-ele();
+			bottom: -2px;
+			height: 2px;
+			width: 0;
+			left: 50%;
+			background: $color__greencal1;
+			transition: .5s all
+		}
+
+		&:hover:after{
+			width: 100%;
+			left: 0;
+		}
+	}
+
+	
 }
 
 .logged-in .nav-close{
 	top: 48px;
+}
+
+
+.search-form{
+	text-align: center;
+
+	.search-field,
+	input[type=submit]{
+		font-size: 3em;
+		border: none;
+	}
+
+	.search-field{
+		background: #fafffc;
+		border-bottom: 3px solid $color__greencal1;
+		color: $color__greencal1;
+		@include center-block-width( 90% );
+		display: block;
+		appearance: textfield;
+
+		&::-ms-clear {  display: none; width : 0; height: 0; }
+		&::-ms-reveal {  display: none; width : 0; height: 0; }
+		&::-webkit-search-decoration,
+		&::-webkit-search-cancel-button,
+		&::-webkit-search-results-button,
+		&::-webkit-search-results-decoration { display: none; }
+
+		&:focus{
+			outline: none;
+			color: $color__greencal1;
+			background: $color__greencal2
+		}
+	}
+
+	input[type=submit]{
+		margin: 1rem 0 0;
+		border: 2px solid $color__barelygreen;
+
+		&:hover,
+		&:active,
+		&:focus{
+			/*@include attn-btn( $color__greencal1, $color__greencal1, $color__white );*/
+			background: #bbb;
+			outline: none;
+		}
+	}
+
+	@media all and ( min-width: 800px ){
+		.search-field{
+			width: 60%
+		}
+	}
+
+	@media all and ( min-width: 2000px ){
+		.search-field{
+			width: 40%
+		}
+	}
 }

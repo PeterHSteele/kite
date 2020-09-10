@@ -54,3 +54,22 @@ function KitePictureNav(){
 
 const kitePictureNav = new KitePictureNav();
 kitePictureNav.run();
+
+function Kite_Parallax(){
+	this.image = document.querySelector( '.kite-parallax-image' );
+	this.imageSectionOffset = this.image.getBoundingClientRect().top
+
+	
+
+	this.handleScroll = function(){
+		this.image.style.transform = 'translate3d( 0px,' +(-1 * this.image.getBoundingClientRect().top/2)  + 'px, 0px)';
+	}
+
+	this.addListeners = function(){
+		document.addEventListener( 'scroll', this.handleScroll.bind(this) );
+	}
+}
+
+
+const kiteParallax = new Kite_Parallax();
+kiteParallax.addListeners();

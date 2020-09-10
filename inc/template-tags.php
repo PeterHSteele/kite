@@ -185,6 +185,16 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'kite_the_graphic' ) ) :
+
+	function kite_the_graphic(){
+		?>
+		<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/kite-img.svg' ) ?>" class="kite-graphic animated" aria-hidden>
+		<?php
+	}
+
+endif;
+
 if ( ! function_exists( 'kite_bubble' ) ) :
 
 	function kite_bubble( $n, $width, $height, $delay ){
@@ -213,6 +223,27 @@ if ( ! function_exists( 'kite_social_menu' ) ) :
 				<?php jetpack_social_menu(); ?>
 			</div>
 			<?php 
+		}
+	}
+
+endif;
+
+if ( ! function_exists( 'kite_close_button' ) ) :
+
+	function kite_close_button( $echo ){
+		ob_start();
+		?>
+		<button class="nav-close" type="button"> 
+			<span class="screen-reader-text"><?php esc_html_e( 'close', 'kite' ); ?></span>
+			<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/kite-nav-close2.svg' ) ?>" aria-hidden>
+		</button>
+		<?php 
+		if ( $echo ){
+			ob_end_flush();
+		} else {
+			$html = ob_get_contents();
+			ob_end_clean();
+			return $html;
 		}
 	}
 

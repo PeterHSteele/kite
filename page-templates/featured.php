@@ -15,7 +15,8 @@ get_header();
 	<main id="primary" class="site-main">
 
 		<div id="hero" style="background-image: url(<?php kite_post_thumbnail_background(); ?>)" class="featured-hero">
-			<div style="background-image: url(<?php echo esc_url(get_template_directory_uri() . '/assets/kite-sploof4.svg') ?>);" class="hero-content">
+			<!--<div style="background-image: url(<?php echo esc_url(get_template_directory_uri() . '/assets/kite-sploof4.svg') ?>);" class="hero-content">-->
+			<div class="hero-content">
 				<?php do_action( 'kite-hero-card' ); ?>
 				<!-- wp:template-part {"slug":"hero-card","theme":"kite"} /-->
 			</div>

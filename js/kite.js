@@ -1,10 +1,13 @@
 function Kite_Main_Navigation(){
-		this.toggle = document.querySelector( '.menu-toggle' );
+		this.menuToggle = document.querySelector( '.menu-toggle' );
 		this.nav = document.querySelector( '.main-navigation' );
+		this.searchForm = document.getElementsByClassName( 'site-header' )[0].getElementsByClassName( 'search-form' )[0];
+		this.searchInput = this.searchForm.getElementsByClassName( 'search-field' )[0]
+		this.searchToggle = document.querySelector( '.search-toggle' );
 		this.navLinks = this.nav.getElementsByTagName( 'a' );
 		this.wheelOpt = false;
 		this.keys = {37: 1, 38: 1, 39: 1, 40: 1};
-		this.close = document.querySelector( '.nav-close' );
+		this.close = document.getElementsByClassName( 'nav-close' );
 
 		/*this.handleScroll = function(){
 			this.nav.style.top = window.scrollY + 'px';
@@ -15,7 +18,7 @@ function Kite_Main_Navigation(){
 				if ( this.keys[e.keyCode] ){
 					e.preventDefault();
 				} else if ( e.keyCode === 9 ){
-					this.toggleNav();
+					this.toggle();
 				}
 			}
 		}
@@ -39,19 +42,42 @@ function Kite_Main_Navigation(){
 			e.preventDefault();
 		}
 
-		this.toggleNav = function(){
-			if ( this.nav.className.indexOf('menu-active') > -1 ){
-				this.nav.classList = this.nav.className.replace( ' menu-active', '' );
+		this.setExpanded = function ( ele ){
+			this.expanded = ele;
+		}
+
+		this.toggle = function( ele ){
+			if ( typeof ele === 'function'){
+				ele = ele();
+			}
+			if ( ele.className.indexOf('menu-active') > -1 ){
+				ele.classList = ele.className.replace( ' menu-active', '' );
+				this.expanded = '';
 				this.enableScrolling();
 			} else {
-				this.nav.className += ' menu-active';
-				this.disableScrolling();
+				ele.className += ' menu-active';
+				this.expanded = ele;
+				if ( ele.className.indexOf('search-form') > -1 ){
+					const { searchInput } = this;
+					searchInput.select();
+					const start = searchInput.selectionStart,
+					end = searchInput.selectionEnd;
+					searchInput.focus();
+					if ( end ){
+						searchInput.setSelectionRange( end, end );
+					}
+				}
 			}
 		}
 
-		this.openNav = function(){
-			if ( this.nav.className.indexOf('menu-active') < 0 ){
-				this.nav.className += ' menu-active';
+		this.getExpanded = function(){
+			console.log('getting');
+			return this.expanded;
+		}
+
+		this.open = function( ele ){
+			if ( ele.className.indexOf('menu-active') < 0 ){
+				ele.className += ' menu-active';
 				this.disableScrolling();
 			}
 		}
@@ -74,12 +100,21 @@ function Kite_Main_Navigation(){
 			//const handleScroll 	   = this.handleScroll.bind( this );
 
 			//let cooldown, endScrollHandle;
-			this.toggle.addEventListener( 'click' , this.toggleNav.bind( this ));
-			this.close.addEventListener( 'click', this.toggleNav.bind( this ));
+			this.menuToggle.addEventListener( 'click' , this.toggle.bind( this, this.nav ));
+			this.searchToggle.addEventListener( 'click', this.toggle.bind( this, this.searchForm ));
 
-			this.boundOpenNav = this.openNav.bind(this)
+			Array
+				.from(this.close)
+				.forEach( closeBtn => closeBtn.addEventListener( 
+					'click', 
+					this.toggle.bind( 
+						this, 
+						this.getExpanded.bind(this) 
+			)));
+
+			this.boundOpen = this.open.bind(this, this.nav);
 			for ( let i = 0; i< this.navLinks.length; i++){
-				this.navLinks[i].addEventListener( 'focus', this.boundOpenNav );
+				this.navLinks[i].addEventListener( 'focus', this.boundOpen );
 			}
 
 			/*window.addEventListener( 'scroll', function(){
@@ -102,23 +137,3 @@ function Kite_Main_Navigation(){
 
 	const kiteNavFunctions = new Kite_Main_Navigation();
 	kiteNavFunctions.run();
-
-function Kite_Parallax(){
-	this.image = document.querySelector( '.kite-parallax-image' );
-	this.imageSectionOffset = this.image.getBoundingClientRect().top
-
-	
-
-	this.handleScroll = function(){
-		this.image.style.transform = 'translate3d( 0px,' +(-1 * this.image.getBoundingClientRect().top/2)  + 'px, 0px)';
-	}
-
-	this.addListeners = function(){
-		document.addEventListener( 'scroll', this.handleScroll.bind(this) );
-	}
-}
-
-
-const kiteParallax = new Kite_Parallax();
-kiteParallax.addListeners();
-
