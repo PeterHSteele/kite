@@ -36,7 +36,7 @@
 }
 
 //post styles ( index view )
-@mixin indexpost( $int, $bg, $color, $link, $accent, $metaborder, $blockcolor, $whitebg: false ){
+@mixin indexpost( $int, $bg, $color, $link, $accent, $metaborder, $blockquotecolor, $blockcodecolor, $whitebg: false ){
 	 .post:nth-child(#{$int}){
 		background: $bg;
 	}
@@ -103,11 +103,15 @@
 	//Blocks
 	.hfeed .post:nth-child(#{$int}) .wp-block-quote{
 		/*border: 2px solid $metaborder;*/
-		background: $color__greencal3;
+		background: $blockcodecolor;
 		/*
 		a{
 			@include link-style( $bg );
 		}*/
+	}
+
+	.hfeed .post:nth-child(#{$int}) .wp-block-code{
+		background: $blockcodecolor;
 	}
 
 }

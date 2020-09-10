@@ -1084,11 +1084,15 @@ body {
 
 .hfeed .post:nth-child(3n) .wp-block-quote {
   /*border: 2px solid $metaborder;*/
-  background: #0c9e65;
+  background: #f0fff9;
   /*
   a{
   	@include link-style( $bg );
   }*/
+}
+
+.hfeed .post:nth-child(3n) .wp-block-code {
+  background: #f0fff9;
 }
 
 /* Child 3n+1 */
@@ -1155,6 +1159,10 @@ body {
   }*/
 }
 
+.hfeed .post:nth-child(3n+1) .wp-block-code {
+  background: #0c9e65;
+}
+
 /* Child 3n+2 */
 .post:nth-child(3n+2) {
   background: #f0fff9;
@@ -1212,11 +1220,15 @@ body {
 
 .hfeed .post:nth-child(3n+2) .wp-block-quote {
   /*border: 2px solid $metaborder;*/
-  background: #0c9e65;
+  background: #63efa3;
   /*
   a{
   	@include link-style( $bg );
   }*/
+}
+
+.hfeed .post:nth-child(3n+2) .wp-block-code {
+  background: #63efa3;
 }
 
 .hfeed .post:nth-child(3n) .wp-block-image,
