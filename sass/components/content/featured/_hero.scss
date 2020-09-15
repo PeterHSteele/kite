@@ -5,7 +5,7 @@
 	min-height: 80vh;
 	background-size: cover;
 	background-repeat: no-repeat;
-	padding: 5rem;
+	padding: 1rem;
 }
 
 $figure-top: 5vh;
@@ -67,6 +67,10 @@ $figure-top: 5vh;
 
 
 @media all and (min-width: 600px){
+	.featured-hero{
+		padding: 5rem;
+	}
+
 	.featured-hero .hero-content{
 		width: 60%
 	}

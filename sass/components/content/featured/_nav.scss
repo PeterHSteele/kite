@@ -29,8 +29,7 @@ nav.kite-picture-nav{
 
 nav.kite-picture-nav h2{
 	transform: skewY(-5deg);
-	margin: 0 0 1.5em 3em;
-	padding: 0 0 0 1em;
+	padding: 0 0 0 .5rem;
 }
 
 nav.kite-picture-nav h2 span.nav-title-wrap{
@@ -64,4 +63,19 @@ ul.picture-nav{
 
 .picture-nav li:hover a{
 	transform: scale(1.5)
+}
+
+@media all and (max-width: 600px){
+	ul.picture-nav{
+		padding: 0; 
+		margin: 0;
+	}
+}
+
+@media all and ( min-width: 600px ){
+	nav.kite-picture-nav h2{
+		margin: 0 0 1.5em 3em;
+		padding: 0 0 0 1em;
+	}
+
 }

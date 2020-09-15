@@ -241,6 +241,10 @@ nav.post-navigation {
 			color: $color__greencal1;
 			background: $color__greencal2
 		}
+
+		&::placeholder{
+			color: $color__greencal4;
+		}
 	}
 
 	input[type=submit]{

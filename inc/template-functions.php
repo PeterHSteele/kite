@@ -232,10 +232,7 @@ add_action( 'kite_jetpack_menu', 'kite_jetpack_menu' );
 
 function kite_search_form( $html ){
 	$before_close = explode( '</form>', $html );
-	$before_close[0] .= kite_close_button( false ) . '</form>';/* . sprintf( 
-		'<img src="%1$s" class="kite-graphic animated"  aria-hidden>', 
-		esc_url( get_template_directory_uri() . "/assets/kite-img.svg" )
-	) .  '</form>';*/ 
+	$before_close[0] .= kite_close_button( false ) . '</form>';
 	return implode( '', $before_close );
 }
 
