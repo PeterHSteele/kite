@@ -26,6 +26,7 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'kite' ); ?></a>
 
 	<header id="masthead" class="site-header">
+		<div class="header-flex-container">
 		<div class="site-branding">
 			<?php
 			if ( has_custom_logo() ):
@@ -60,4 +61,5 @@
 		get_template_part( 'template-parts/navigation', 'top' ); 
 		get_search_form();
 		?>
+		</div>
 	</header><!-- #masthead -->

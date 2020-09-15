@@ -824,10 +824,11 @@ textarea {
 
 }
 */
-.site-header {
+.header-flex-container {
   padding: 8px 1rem;
   background: #f0fff9;
   display: flex;
+  flex-flow: row wrap;
   justify-content: space-between;
   /*position: sticky;
   top: 0;*/
@@ -837,15 +838,22 @@ textarea {
   a.custom-logo-fallback,*/
   /*a.custom-logo-fallback,*/
 }
-.site-header .site-title a {
+.header-flex-container .site-title a {
   border-bottom: none;
 }
-.site-header .site-title a {
+.header-flex-container .site-title a {
   color: #10b66f;
 }
-.site-header p.site-title a {
+.header-flex-container p.site-title a {
   font-size: 2em;
   font-family: "Khula", Helvetica, Oxygen-Sans, sans-serif;
+}
+.header-flex-container .header-controls,
+.header-flex-container .site-branding {
+  display: flex;
+}
+.header-flex-container .site-branding {
+  flex-direction: column;
 }
 
 .header-controls {

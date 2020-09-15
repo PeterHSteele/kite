@@ -1,9 +1,10 @@
 @import "../../abstracts/abstracts";
 
-.site-header{
+.header-flex-container{
 	padding: 8px 1rem;
 	background: $color__greencal2;
 	display: flex;
+	flex-flow: row wrap;
 	justify-content: space-between;
 	/*position: sticky;
 	top: 0;*/
