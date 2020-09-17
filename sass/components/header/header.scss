@@ -1,5 +1,15 @@
 @import "../../abstracts/abstracts";
 
+.site-header{
+	margin: 0 0 2rem 0;
+}
+
+@media all and ( min-width: 600px ){
+	.site-header{
+		margin: 0;
+	}
+}
+
 .header-flex-container{
 	padding: 8px 1rem;
 	background: $color__greencal2;
@@ -58,9 +68,3 @@
 		outline: none;
 	}
 }
-/*
-.logged-in .site-header{
-	top: 32px;
-}
-*/
-

@@ -10,7 +10,7 @@ body{
 
 .post,
 .type-page{
-	@include slant-spacing();
+	@include slant-spacing-sm();
 	position: relative;
 	margin: 0;
 	transform: skewY(3deg);
@@ -23,7 +23,9 @@ body{
 }
 
 @media all and ( min-width: 800px ){
-	.post{
+	.post,
+	.type-page{
+		@include slant-spacing();
 		padding: 90px 1rem 70px;
 	}
 }

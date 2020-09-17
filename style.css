@@ -744,17 +744,6 @@ textarea {
 
 /* Macro Layout
 --------------------------------------------- */
-#page {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  overflow-x: hidden;
-}
-
-#primary {
-  flex: 1 0;
-}
-
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
@@ -825,6 +814,10 @@ textarea {
 
 }
 */
+.site-header {
+  margin: 0 0 2rem 0;
+}
+
 .header-flex-container {
   padding: 8px 1rem;
   background: #f0fff9;
@@ -883,6 +876,11 @@ textarea {
 	top: 32px;
 }
 */
+@media all and (min-width: 600px) {
+  .site-header {
+    margin: 0;
+  }
+}
 /* Navigation
 --------------------------------------------- */
 /*
@@ -1304,7 +1302,7 @@ body {
 
 .post,
 .type-page {
-  padding: 90px 1rem;
+  padding: 40px 1rem;
   position: relative;
   margin: 0;
   transform: skewY(3deg);
@@ -1317,7 +1315,9 @@ body {
 }
 
 @media all and (min-width: 800px) {
-  .post {
+  .post,
+.type-page {
+    padding: 90px 1rem;
     padding: 90px 1rem 70px;
   }
 }

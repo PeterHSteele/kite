@@ -31,6 +31,10 @@
 	transform-origin: bottom left;
 }
 
+@mixin slant-spacing-sm(){
+	padding: 40px 1rem;
+}
+
 @mixin slant-spacing(){
 	padding: 90px 1rem;
 }

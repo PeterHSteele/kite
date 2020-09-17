@@ -57,16 +57,18 @@ kitePictureNav.run();
 
 function Kite_Parallax(){
 	this.image = document.querySelector( '.kite-parallax-image' );
-	this.imageSectionOffset = this.image.getBoundingClientRect().top
-
-	
+	this.body = document.getElementsByTagName('body')[0];
 
 	this.handleScroll = function(){
-		this.image.style.transform = 'translate3d( 0px,' +(-1 * this.image.getBoundingClientRect().top/2)  + 'px, 0px)';
+		const translation = -1 * this.image.getBoundingClientRect().y/2;
+		console.log('translation', translation);
+		this.image.style.transform = 'translate3d( 0px,' + translation  + 'px, 0px)';
 	}
 
 	this.addListeners = function(){
-		document.addEventListener( 'scroll', this.handleScroll.bind(this) );
+		const handleScroll = this.handleScroll.bind(this)
+		console.log( this.handleScroll );
+		window.addEventListener( 'scroll', this.handleScroll.bind( this ));
 	}
 }
 
