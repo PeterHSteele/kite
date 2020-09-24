@@ -1,20 +1,16 @@
 === kite ===
 
-Contributors: automattic
+Contributors: @peterste
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
-Requires at least: 4.5
-Tested up to: 5.4
-Requires PHP: 5.6
+Requires at least: 5.3
+Tested up to: 5.5
+Requires PHP: 7.0
 Stable tag: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
-A starter theme called kite.
-
-== Description ==
-
-Description
+A blogging and portfolio WordPress Theme
 
 == Installation ==
 
@@ -26,11 +22,11 @@ Description
 
 = Does this theme support any plugins? =
 
-kite includes support for WooCommerce and for Infinite Scroll in Jetpack.
+Not at the moment.
 
 == Changelog ==
 
-= 1.0 - May 12 2015 =
+= 1.0 - September 2020 =
 * Initial release
 
 == Credits ==
