@@ -179,9 +179,9 @@ function kite_bubble_section(){
 	kite_bubble( 5, 60, 70, -3.5);
 	?>
 	<div class="text-panel">
-		<!--<p><?php echo apply_filters( 'the_content', $text ); ?></p>-->
+		<?php echo apply_filters( 'the_content', $text ); ?></p>
 		<?php
-		while ( have_posts() ) :
+		/*while ( have_posts() ) :
 			the_post();
 
 			get_template_part( 'template-parts/content', 'page' );
@@ -192,7 +192,7 @@ function kite_bubble_section(){
 			endif;
 
 		endwhile; // End of the loop.
-		?>
+		*/?>
 	</div>
 	<?php
 	endif;
