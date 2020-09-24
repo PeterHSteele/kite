@@ -1,5 +1,6 @@
 function KitePictureNav(){
 	this.section = document.querySelector( '.picture-nav-section' );
+	if ( ! this.section ) return;
 	this.menu = this.section.getElementsByClassName( 'picture-nav' )[0];
 	this.mask = this.section.getElementsByClassName( 'picture-nav-mask' )[0];
 	this.image = null;
