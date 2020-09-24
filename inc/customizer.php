@@ -99,7 +99,8 @@ function kite_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting( 'kite-featured-card-1-body', array(
 		'default' => '',
-		'sanitize_callback' => 'sanitize_textarea_field',
+		//'sanitize_callback' => 'sanitize_textarea_field',
+		'sanitize_callback' => 'kite_sanitize_textarea_field',
 	));
 
 	$wp_customize->add_control( 'kite-featured-card-1-body', array(
@@ -256,6 +257,31 @@ function kite_sanitize_year( $year ){
 
 function kite_sanitize_checkbox( $input ){
     return intval( $input ) > 0 ? 1 : 0;
+}
+
+/**
+* Sanitize a textarea field
+*/
+
+function kite_sanitize_textarea_field( $text ){
+	return wp_kses(
+		$text,
+		array(
+			'a' => array(
+				'class' => array(),
+				'href' => array()
+			),
+			'img' => array(
+				'class' => array(),
+				'alt' => array(),
+				'src' => array(),
+				'srcset' => array(),
+				'height' => array(),
+				'width' => array(),
+				'style' => array()
+			)
+		)
+	);
 }
 
 /**

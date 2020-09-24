@@ -72,7 +72,7 @@ function kite_featured_cards(){
 		?>
 		<section class="card <?php echo 'card-'.$count ?>">
 			<h2><?php echo esc_html( $title ); ?></h2>
-			<p><?php echo $text;//apply_filters( 'the_content', $text ); ?></p>
+			<p><?php echo apply_filters( 'the_content', $text ); ?></p>
 		</section>
 		<div class="card-spacer"></div>
 		<?php
