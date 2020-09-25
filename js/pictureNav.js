@@ -4,6 +4,9 @@ function KitePictureNav(){
 	this.menu = this.section.getElementsByClassName( 'picture-nav' )[0];
 	this.mask = this.section.getElementsByClassName( 'picture-nav-mask' )[0];
 	this.image = null;
+	this.fadeDelay = false;
+	this.fadeTimeout = false;
+	this.green = '#63efa3';
 	//this.sourceSet = JSON.parse(this.section.dataset.sources);
 
 	this.getLis = function(){
@@ -19,31 +22,59 @@ function KitePictureNav(){
 		this.lis = lis;
 	}
 
-	this.handleHover = function( event ){
-		const source = event.target.dataset.source;
-		if ( source == this.prevImage){
-			return;
-		}
+	this.resetNavFade = function(){
+		this.mask.className = this.mask.className.replace( new RegExp(' fade', 'g'), '' );
+		this.fadeDelay = false;
+	}
 
+	this.setBg=function( val ){
+		this.section.style.background = val;
+	}
+
+	this.handleHover = function( event ){
+		const source = event.target.dataset.source,
+			  { green } = this;
+		if ( ! source ) return;
+
+		if ( ! this.fadeDelay ){
+			this.fadeDelay = true;
+		} else {
+			window.clearTimeout( this.fadeTimeout );
+		}
 		this.mask.className += ' fade';
 
-			window.setTimeout( () => {
-				this.mask.className = this.mask.className.replace( ' fade', '' );
-				if ( ! source ){
-					this.prevImage = '#63efa3';
-					this.section.style.background = '#63efa3';
-				} else{
-					this.prevImage = source;
-					this.section.style.backgroundImage = "url(" + source + ")";
-				}
+		this.fadeTimeout = window.setTimeout( () => {
+				this.resetNavFade();
+				this.setBg( source ? "url(" + source + ")" : green );
 			}, 300);
-			
+	}
+
+	this.handleLeave = function(e){
+		if ( ! e.target.dataset.source ){
+			return;
+		}
+		const { green } = this;
+		
+		if ( ! this.fadeDelay ){
+			this.fadeDelay = true;
+			this.mask.className += ' fade';
+
+			window.setTimeout( () => {
+				this.resetNavFade();
+				this.setBg( green );
+			}, 300);
+		} else {
+			window.clearTimeout( this.fadeTimeout );
+			this.setBg( green );
+			this.mask.className = this.mask.className.replace( new RegExp(' fade', 'g'), '' );
+		}
+		window.clearTimeout( this.fadeAnimation );
 	}
 
 	this.addListeners = function(){
-		const handleHover = this.handleHover.bind(this)
-		this.lis.forEach( function(li){
-			li.addEventListener( 'mouseenter', handleHover );
+		this.lis.forEach( li => {
+			li.addEventListener( 'mouseenter', this.handleHover.bind(this) );
+			li.addEventListener( 'mouseleave' , this.handleLeave.bind(this) );
 		})
 	}
 
