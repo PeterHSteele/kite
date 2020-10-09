@@ -818,6 +818,11 @@ textarea {
   margin: 0 0 2rem 0;
 }
 
+@media all and (min-width: 600px) {
+  .site-header {
+    margin: 0;
+  }
+}
 .header-flex-container {
   padding: 8px 1rem;
   background: #f0fff9;
@@ -871,16 +876,6 @@ textarea {
   outline: none;
 }
 
-/*
-.logged-in .site-header{
-	top: 32px;
-}
-*/
-@media all and (min-width: 600px) {
-  .site-header {
-    margin: 0;
-  }
-}
 /* Navigation
 --------------------------------------------- */
 /*
@@ -2664,11 +2659,14 @@ ul.picture-nav {
 
 .kite-bubble {
   position: absolute;
-  box-shadow: 2px 2px #10b66f, 4px 4px #32d88f;
+  /*box-shadow: 2px 2px $color__greencal1,
+  /*4px 4px #32d88f;*/
   /*83px 3px 1px #54f00f;*/
-  box-shadow: 2px 2px 0px 0px #32d88f;
-  border-radius: 50%;
-  background: #63efa3;
+  /*box-shadow: 2px 2px 0px 0px #32d88f;*/
+  /*border-radius: 50%;*/
+  background: url(./assets/dodeca.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .kite-bubble-1 {
@@ -2676,6 +2674,29 @@ ul.picture-nav {
   animation: 4s bubbleup1 linear infinite;
 }
 
+@keyframes rotation {
+  /* 25%{
+       transform: rotate(30deg);
+   }
+
+   50%{
+       transform: rotate(0deg);
+   }
+
+   75%{
+       transform: rotate(-30deg);
+   }
+
+   100%{
+       transform: rotate(0deg);
+   }*/
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 @keyframes bubbleup1 {
   0% {
     bottom: -100px;
@@ -2711,6 +2732,29 @@ ul.picture-nav {
   animation: 4s bubbleup2 linear infinite;
 }
 
+@keyframes rotation {
+  /* 25%{
+       transform: rotate(30deg);
+   }
+
+   50%{
+       transform: rotate(0deg);
+   }
+
+   75%{
+       transform: rotate(-30deg);
+   }
+
+   100%{
+       transform: rotate(0deg);
+   }*/
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 @keyframes bubbleup2 {
   0% {
     bottom: -100px;
@@ -2746,6 +2790,29 @@ ul.picture-nav {
   animation: 4s bubbleup3 linear infinite;
 }
 
+@keyframes rotation {
+  /* 25%{
+       transform: rotate(30deg);
+   }
+
+   50%{
+       transform: rotate(0deg);
+   }
+
+   75%{
+       transform: rotate(-30deg);
+   }
+
+   100%{
+       transform: rotate(0deg);
+   }*/
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 @keyframes bubbleup3 {
   0% {
     bottom: -100px;
@@ -2781,6 +2848,29 @@ ul.picture-nav {
   animation: 4s bubbleup4 linear infinite;
 }
 
+@keyframes rotation {
+  /* 25%{
+       transform: rotate(30deg);
+   }
+
+   50%{
+       transform: rotate(0deg);
+   }
+
+   75%{
+       transform: rotate(-30deg);
+   }
+
+   100%{
+       transform: rotate(0deg);
+   }*/
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 @keyframes bubbleup4 {
   0% {
     bottom: -100px;
@@ -2816,6 +2906,29 @@ ul.picture-nav {
   animation: 4s bubbleup5 linear infinite;
 }
 
+@keyframes rotation {
+  /* 25%{
+       transform: rotate(30deg);
+   }
+
+   50%{
+       transform: rotate(0deg);
+   }
+
+   75%{
+       transform: rotate(-30deg);
+   }
+
+   100%{
+       transform: rotate(0deg);
+   }*/
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 @keyframes bubbleup5 {
   0% {
     bottom: -100px;
@@ -2846,28 +2959,29 @@ ul.picture-nav {
     left: calc( 90% - 5px );
   }
 }
-.shine {
-  position: absolute;
-  top: 30%;
-  left: 60%;
-  width: 20%;
-  height: 14%;
-  background: #63efa3;
-  border-radius: 40px;
-  transform: rotate(-20deg);
+/*
+.shine{
+    position: absolute;
+    top: 30%;
+    left: 60%;
+    width: 20%;
+    height: 14%;
+    background: $color__greencal4;
+    border-radius: 40px;
+    transform: rotate(-20deg);
 }
-
-.shine:after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: "";
-  height: 100%;
-  width: 100%;
-  background: #f0fff9;
-  border-radius: 40px 40px 100px 40px;
+/*
+.shine:after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background: $color__greencal2;
+    border-radius: 40px 40px 100px 40px;
 }
-
+*/
 .bubble-panel .text-panel {
   background: #f0fff9;
   color: #0c9e65;

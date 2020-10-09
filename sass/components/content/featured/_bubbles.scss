@@ -10,12 +10,14 @@
 
 .kite-bubble{
     position: absolute;
-    box-shadow: 2px 2px $color__greencal1,
-    4px 4px #32d88f;
+    /*box-shadow: 2px 2px $color__greencal1,
+    /*4px 4px #32d88f;*/
     /*83px 3px 1px #54f00f;*/
-    box-shadow: 2px 2px 0px 0px #32d88f;
-    border-radius: 50%;
-    background: $color__greencal4;
+    /*box-shadow: 2px 2px 0px 0px #32d88f;*/
+    /*border-radius: 50%;*/
+    background: url(./assets/dodeca.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 @include bubble-mixin( 1, .05 );
@@ -23,7 +25,7 @@
 @include bubble-mixin( 3, .45 );
 @include bubble-mixin( 4, .74 );
 @include bubble-mixin( 5, .90 );
-
+/*
 .shine{
     position: absolute;
     top: 30%;
@@ -34,7 +36,7 @@
     border-radius: 40px;
     transform: rotate(-20deg);
 }
-
+/*
 .shine:after{
     position: absolute;
     top: 0;
@@ -45,7 +47,7 @@
     background: $color__greencal2;
     border-radius: 40px 40px 100px 40px;
 }
-
+*/
 .bubble-panel .text-panel{
     background: $color__greencal2;
     color: $color__greencal3;

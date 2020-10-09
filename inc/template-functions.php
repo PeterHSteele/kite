@@ -172,11 +172,16 @@ add_action( 'kite_blockquote_section', 'kite_blockquote' );
 function kite_bubble_section(){
 	$text = get_theme_mod( 'kite-bubble-text', '' );
 	if ( $text ) :
-	kite_bubble( 1, 80, 100, -1);
+	/*kite_bubble( 1, 80, 100, -1);
 	kite_bubble( 2, 60, 50, -3);
 	kite_bubble( 3, 80, 70, -2.5);
 	kite_bubble( 4, 90, 80, -.5);
-	kite_bubble( 5, 60, 70, -3.5);
+	kite_bubble( 5, 60, 70, -3.5);*/
+	kite_bubble( 1, 80, 80, -1);
+	kite_bubble( 2, 60, 60, -3);
+	kite_bubble( 3, 70, 70, -2.5);
+	kite_bubble( 4, 90, 90, -.5);
+	kite_bubble( 5, 65, 65, -3.5);
 	?>
 	<div class="text-panel">
 		<?php echo apply_filters( 'the_content', $text ); ?></p>

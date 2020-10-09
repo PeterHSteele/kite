@@ -6,7 +6,33 @@
 
     .kite-bubble-#{$int}{
         left: math.percentage( $left );
-        animation: 4s bubbleup#{$int} linear infinite;
+        animation: 4s bubbleup#{$int} linear infinite; 
+    }
+
+    @keyframes rotation{
+       /* 25%{
+            transform: rotate(30deg);
+        }
+        
+        50%{
+            transform: rotate(0deg);
+        }
+
+        75%{
+            transform: rotate(-30deg);
+        }
+
+        100%{
+            transform: rotate(0deg);
+        }*/
+
+        from{
+            transform: rotate(0deg);
+        }
+
+        to{
+            transform: rotate(360deg);
+        }
     }
 
     @keyframes bubbleup#{$int}{
